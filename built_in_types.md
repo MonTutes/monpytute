@@ -1,0 +1,43 @@
+# Built-in Types
+
+Python is duck-typed, which means if it looks like an integer (e.g. `x = 50`), a floating point number (`x = 1.5`), a string (`s = "my string"` or `s = 'my string'`)..then that's what it will be.
+
+## int/float
+
+In python 3, `1 / 2` becomes `0.5` turning into a `float`, but you can get the same behavior as python 2 by using the `//` operator, e.g. `1 // 2` also becomes `0`.
+
+Unlike python 2, python 3 has just a single `int` type. Python 3 ints have variable numbers of bits, and can represent numbers of any size. 
+
+It's worth noting that calling `int(0.5)` as a function will round downwards to `0`, while `round(0.5)` will round up to `1`. You can also use the `int` function to convert a string with an integer in it, e.g. `int("5")` will give `5`. This function doesn't like floating point numbers inside strings, so in these cases you'll need to convert to a float beforehand, e.g. `int(float(5.0))` also gives `5`.
+
+<b>Warning:</b> While most of the time you will encounter ordinary python `int`s, some other popular libraries like `numpy` or `pymongo` have their own custom fixed-bit integer/float types which don't behave exactly the same as the builtin ones. These can need special handling when trying to do things like encode them using the `json` module or arithmetic operations, and it's often safer to explicitly coerce them using `int(x)` or `float(x)`. 
+
+## strings/bytes
+
+### strings
+
+Python 3 strings are Unicode, which means they can represent a large majority of the characters in use in the world today. Many programming languages and web browsers only have 2-byte unicode support (UCS-2), which means that characters above ordinal 65535 (such as many emoji) will be represented as two characters. In python 3.3 and up, whether strings take up 1, 2, or 4 bytes per character depends on whether there are characters in your strings which need to use that many bytes. This means for the most part you shouldn't need to worry about this, however note some external libraries could have trouble dealing with these characters.
+
+Python isn't particular about whether you use single quotes (`'my string'`) or double quotes (`"my string"`), although it's best to be consistent. If you want to include a single quote character inside a single-quoted string (or a double quote character inside a double-quoted string), you can use a slash before it: `"\""` or `'\''`. A good alternative if you'd like to use these characters in strings is to use triple quotes (`"""my string"""` or `'''my string'''`), which are known as "string literals". Triple double quotes are often used as "docstrings", which document python code for other people reading your code.
+
+There are lots of very convenient methods, too:
+
+* `capitalize`/``
+* `casefold`
+* `format`
+
+You might see different prefix characters such as `b`, `r`, `u` or `f` before strings:
+
+* In python 2, `u""` specified a unicode string, but in python 3 it's ignored, and you safely can too.
+* `r""` prefixes are intended for regular expressions, eliminating the need to double-escape backslashes. For example, `r"\b"` is the same as `"\\b"` and will physically contain two characters "\" and "b". 
+* `f""` ("format prefixes") allow for embedding any python expression inside them. For instance, `f"Hello {'world'}, I'm {22}!"` will give "Hello world, I'm 22!".
+* `b""` "byte prefixes" signify what follows isn't actually a string, but binary byte data. 
+
+### bytes
+
+To convert to bytes type from `str`, you can use the `.encode()` method, e.g. `"my data".encode('ascii')` will give binary data encoded as ascii. Similarly `b"my data".decode('ascii')` will decode binary ascii data and give a string. 
+
+(There is also the `bytearray` type which is like a mutable `bytes` type which can be used with `memoryview` for higher performance, but it's best not to prematurely optimize!) 
+
+<b>Warning:</b> `byte` type indexing doesn't behave the same as strings. For example `b"my string"[0]` will give `109` (the ordinal code of "m" as an `int`), while `b"my string"[0:2]` will return a `bytes` object of `b"my"`. Also note that string methods such as `replace` need `bytes`, not string arguments (e.g. `b"my string".replace(b"my", b"your")` will give `b'your string'`.
+
