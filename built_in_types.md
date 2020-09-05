@@ -35,9 +35,25 @@ You might see different prefix characters such as `b`, `r`, `u` or `f` before st
 
 ### bytes
 
+The `bytes` type stores arbitrary binary data, where each character is a single byte, as the name might suggest.
+
 To convert to bytes type from `str`, you can use the `.encode()` method, e.g. `"my data".encode('ascii')` will give binary data encoded as ascii. Similarly `b"my data".decode('ascii')` will decode binary ascii data and give a string. 
 
 (There is also the `bytearray` type which is like a mutable `bytes` type which can be used with `memoryview` for higher performance, but it's best not to prematurely optimize!) 
 
-<b>Warning:</b> `byte` type indexing doesn't behave the same as strings. For example `b"my string"[0]` will give `109` (the ordinal code of "m" as an `int`), while `b"my string"[0:2]` will return a `bytes` object of `b"my"`. Also note that string methods such as `replace` need `bytes`, not string arguments (e.g. `b"my string".replace(b"my", b"your")` will give `b'your string'`.
+<b>Warning:</b> `byte` type indexing doesn't behave the same as strings. For example `b"my string"[0]` will give `109` (the ordinal code of "m" as an `int`), while `b"my string"[0:2]` will return a `bytes` object of `b"my"`. Similary iterating through a `bytes` type will output integers, e.g. `for i in b"ab": print(i)` will output `97` and `98`. Also note that bytes methods such as `replace` need `bytes`, not string arguments (e.g. `b"my string".replace(b"my", b"your")` will give `b'your string'`.
 
+### tuple/list
+
+Tuples do pretty much the same as lists, except they aren't mutable (can't change them once you've created them). 
+
+* e.g. `[50, 'my string']` creates a list.
+* e.g. `(50, 'my string')`, `50, 'my string'`, `(50,)` or `50,` create tuples. The syntax is ambiguous with the syntax for function arguments, so you must include parenthesis in function calls e.g. `print((50,))` will output `(50,)`. Because a comma at the end of the line will create a tuple and is valid syntax, it's easy to enter e.g. `my_num = 50,` by accident, and this can be a source of bugs.
+
+#### slicing lists and tuples
+
+### range
+
+### dict
+
+### 
