@@ -23,18 +23,17 @@ Python isn't particular about whether you use single quotes (`'my string'`) or d
 There are lots of very convenient methods, too:
 
 * <b>Casing:</b> `capitalize`/`lower`/`swapcase`/`casefold`/`title`
-* `format`
+* <b>Format String:</b> `format`
 * <b>Padding:</b> `center`/`expandtabs`/`ljust`/`rjust`
-* `count`
-* `endswith`/`startswith`
-* `encode`
-* `find`/`index`/`rfind`/`rindex`
-* `isalnum`/`isalpha`/`isascii`/`isdecimal`/`isdigit`/`islower`/`isnumeric`/`isprintable`/`isspace`/`istitle`/`isupper`/``
-* `join`
-* <b></b> `strip`/`lstrip`/`rstrip`
+* <b>Get Whether the String Starts With/Ends With Characters:</b> `endswith`/`startswith`
+* <b>Convert to `bytes` in a Given Encoding:</b> `encode`
+* <b>Find/Count Occurences of Characters:</b> `find`/`index`/`rfind`/`rindex`/`count`
+* <b>Join `str` objects in a `list`/`tuple` to Make a Single `str`:</b> `join`
+* <b>Trim Characters (Often Whitespace):</b> `strip`/`lstrip`/`rstrip`
 * <b>Split by First Instance of Characters:</b> `partition`/`rpartition`
 * <b>Split by Characters:</b> `split`/`rsplit`/`splitlines`
 * <b>Character Translation:</b>: `maketrans`/`translate`
+* `isalnum`/`isalpha`/`isascii`/`isdecimal`/`isdigit`/`islower`/`isnumeric`/`isprintable`/`isspace`/`istitle`/`isupper`/``
 
 You might see different prefix characters such as `b`, `r`, `u` or `f` before strings:
 
@@ -51,7 +50,7 @@ To convert to bytes type from `str`, you can use the `.encode()` method, e.g. `"
 
 (There is also the `bytearray` type which is like a mutable `bytes` type which can be used with `memoryview` for higher performance, but it's best not to prematurely optimize!) 
 
-<b>Warning:</b> `byte` type indexing doesn't behave the same as strings. For example `b"my string"[0]` will give `109` (the ordinal code of "m" as an `int`), while `b"my string"[0:2]` will return a `bytes` object of `b"my"`. Similary iterating through a `bytes` type will output integers, e.g. `for i in b"ab": print(i)` will output `97` and `98`. Also note that bytes methods such as `replace` need `bytes`, not string arguments (e.g. `b"my string".replace(b"my", b"your")` will give `b'your string'`.
+<b>Warning:</b> `byte` type indexing doesn't behave the same as strings. For example `b"my string"[0]` will give `109` (the ordinal code of "m" as an `int`), while `b"my string"[0:2]` will return a `bytes` object of `b"my"`. Similarly, iterating through a `bytes` type will output integers, e.g. `for i in b"ab": print(i)` will output `97` and `98`. Also note that bytes methods such as `replace` need `bytes`, not string arguments (e.g. `b"my string".replace(b"my", b"your")` will give `b'your string'`.
 
 ### tuple/list
 
@@ -67,7 +66,18 @@ See also:
 
 #### list comprehensions
 
+List comprehensions allow compact creating a new list from something that can also be iterated through (that could be another `list`/`tuple`, characters in a `string`, keys in a `dict`, etc). For example, `my_new_list` will be `[0, 1, 3, 4]`:
 
+    my_list = [0, 1, 2, 3, 4]
+    my_new_list = [i for i in my_list if i != 2]
+
+This is exactly the same as the below code, only shorter (and I think more readable):
+
+    my_list = [0, 1, 2, 3, 4]
+    my_new_list = []
+    for i in my_list:
+        if i != 2:
+            my_new_list.append(i)
 
 #### slicing lists and tuples
 
