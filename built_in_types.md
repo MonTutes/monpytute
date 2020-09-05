@@ -22,9 +22,19 @@ Python isn't particular about whether you use single quotes (`'my string'`) or d
 
 There are lots of very convenient methods, too:
 
-* `capitalize`/``
-* `casefold`
+* <b>Casing:</b> `capitalize`/`lower`/`swapcase`/`casefold`/`title`
 * `format`
+* <b>Padding:</b> `center`/`expandtabs`/`ljust`/`rjust`
+* `count`
+* `endswith`/`startswith`
+* `encode`
+* `find`/`index`/`rfind`/`rindex`
+* `isalnum`/`isalpha`/`isascii`/`isdecimal`/`isdigit`/`islower`/`isnumeric`/`isprintable`/`isspace`/`istitle`/`isupper`/``
+* `join`
+* <b></b> `strip`/`lstrip`/`rstrip`
+* <b>Split by First Instance of Characters:</b> `partition`/`rpartition`
+* <b>Split by Characters:</b> `split`/`rsplit`/`splitlines`
+* <b>Character Translation:</b>: `maketrans`/`translate`
 
 You might see different prefix characters such as `b`, `r`, `u` or `f` before strings:
 
@@ -35,7 +45,7 @@ You might see different prefix characters such as `b`, `r`, `u` or `f` before st
 
 ### bytes
 
-The `bytes` type stores arbitrary binary data, where each character is a single byte, as the name might suggest.
+The `bytes` type stores arbitrary binary data, where each character is a single byte (ordinals from 0 to 255 inclusive for each character), as the name might suggest.
 
 To convert to bytes type from `str`, you can use the `.encode()` method, e.g. `"my data".encode('ascii')` will give binary data encoded as ascii. Similarly `b"my data".decode('ascii')` will decode binary ascii data and give a string. 
 
@@ -45,10 +55,19 @@ To convert to bytes type from `str`, you can use the `.encode()` method, e.g. `"
 
 ### tuple/list
 
-Tuples do pretty much the same as lists, except they aren't mutable (can't change them once you've created them). 
+Tuples do pretty much the same as lists, except they aren't mutable (you can't change them once you've created them). 
 
 * e.g. `[50, 'my string']` creates a list.
 * e.g. `(50, 'my string')`, `50, 'my string'`, `(50,)` or `50,` create tuples. The syntax is ambiguous with the syntax for function arguments, so you must include parenthesis in function calls e.g. `print((50,))` will output `(50,)`. Because a comma at the end of the line will create a tuple and is valid syntax, it's easy to enter e.g. `my_num = 50,` by accident, and this can be a source of bugs.
+
+See also:
+
+* the `array` module for memory-efficient representations of basic (numeric/character) types.
+* `ndarray` from the external `numpy` module provides similar functions and is very commonly used, with a focus on linear algebra and math/scientific functions. 
+
+#### list comprehensions
+
+
 
 #### slicing lists and tuples
 
