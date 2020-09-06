@@ -134,7 +134,7 @@ my_list[1:] # [1, 2, 3, 4]
 my_list[:-1] # [0, 1, 2, 3]
 ```
 
-Note that `ndarray` from `numpy` (and similar types from various machine learning libraries) behave quite differently from python built-in types when slicing, and are closer to notations used for linear algebra. See also https://numpy.org/doc/stable/reference/arrays.indexing.html.
+Note that `ndarray` from `numpy` (and similar types from various machine learning libraries) behave quite differently from python built-in types when slicing, and are closer to notations used for linear algebra. See also https://numpy.org/doc/stable/user/basics.indexing.html#basics-indexing.
 
 ### list comprehensions
 
