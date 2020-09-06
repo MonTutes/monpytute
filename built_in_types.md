@@ -36,7 +36,7 @@ There are three common ways of formatting strings:
 
 * <b>`printf`-style formatting:</b> `"Hello, %s!" % ("World",)`. `%s` (the equivalent of calling `str(o)` on the object) works in many cases, but the full reference is [here](https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting).
 * <b>Formatting using `str.format()`:</b> `"Hello, {}!".format("World")`. See also the [full reference](https://docs.python.org/3/library/stdtypes.html#str.format).
-* <b>`f`-string formatting (python expressions):</b> `"Hello, {'World'}!"`
+* <b>`f`-string formatting (python expressions):</b> `f"Hello, {'World'}!"`
 
 There are lots of [convenient methods](https://docs.python.org/3/library/stdtypes.html#string-methods), too:
 
