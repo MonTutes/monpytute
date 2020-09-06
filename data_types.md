@@ -14,7 +14,7 @@ Some of the modules are the ones I use most often, as they can help to reduce co
 
 Like a list which you can append/remove efficiently from either the left or right-hand side.
 
-```print
+```python
 
 ```
 
@@ -25,6 +25,26 @@ Like a list which you can append/remove efficiently from either the left or righ
 ### OrderedDict
 
 ### defaultdict
+
+This is basically a nice-to-have which reduces the amount of code needed when you're using the `dict.setdefault()` method a lot. For instance,
+
+```python
+from collections import defaultdict
+
+my_dict = defaultdict([])
+my_dict['mykey'].append(1)
+my_dict['mykey'].append(2)
+```
+
+is the same as 
+
+```python
+my_dict = {}
+my_dict.setdefault('mykey', []).append(1)
+my_dict.setdefault('mykey', []).append(2)
+```
+
+and can also be faster, as a list object isn't created and discarded for subsequent appends. 
 
 ### UserDict
 
@@ -121,3 +141,20 @@ pprint(o)
 
 ## enum — Support for enumerations
 
+It can often be cleaner and easier to use the `enum` module than have lots of integer defines which you need to keep updated.
+
+```python
+
+from enum import Enum, auto
+
+class Animals(Enum):
+    SQUIRREL = auto()
+    HEDGEHOG = auto()
+    LEMMING = auto()
+
+print(Animals.SQUIRREL) # -> Animals.SQUIRREL
+print(Animals.SQUIRREL.value) # -> 1
+print(Animals.HEDGEHOG.value) # -> 2
+```
+
+There are many more powerful ways to use this module in [the docs](https://docs.python.org/3/library/enum.html).
