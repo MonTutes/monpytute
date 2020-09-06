@@ -30,5 +30,6 @@ For example, I have some dictionary data which is in the "shift-jis" encoding, a
 
 ```python
 with open(path, 'r', encoding='shift_jis') as f:
-    data = f.read()
+    for line in f:
+        # do something with the data
 ```
