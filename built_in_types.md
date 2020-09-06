@@ -75,6 +75,18 @@ To convert to bytes type from `str`, you can use the `.encode()` method, e.g. `"
 
 ### lists
 
+Lists are ordered collections of items that can be updated/added to in-place, e.g:
+
+```python
+my_list = [1, 2, 3]
+my_list.insert(1, 5) # Insert 5 before 2 and after 1
+print(my_list) # -> [1, 5, 2, 3]
+
+my_list = [1, 2, 3]
+my_list.append(6) # Append 6 to the end of the list
+print(my_list) # -> [1, 2, 3, 6]
+```
+
 <b>Warning:</b> It's not a good idea to have a `list` as a default function parameter, as any changes will be persistent across function calls. For example:
 
 ```python
@@ -86,27 +98,7 @@ my_function() # -> ["foo"]
 my_function() # -> ["foo", "bar"]
 ```
 
-Lookup times for `in my_list` or similar operations can also very slow if there are many elements, as python will need to go through every item until it finds the one you've asked it to find. dicts and sets are a much faster alternative in these cases, as only a single operation is needed.
-
-#### list comprehensions
-
-List comprehensions allow compact creation of a new list from something that can also be iterated through. The other iterable object could be another `list`/`tuple`, characters in a `string`, keys in a `dict`, etc). For example, `my_new_list` will be `[0, 1, 3, 4]`:
-
-```python
-my_list = [0, 1, 2, 3, 4]
-my_new_list = [i for i in my_list if i != 2]
-```
-
-This is exactly the same as the below code, only shorter (and I think more readable):
-
-```python
-my_list = [0, 1, 2, 3, 4]
-
-my_new_list = []
-for i in my_list:
-    if i != 2:
-        my_new_list.append(i)
-```
+Lookup times for `"foo" in my_list` or similar operations can also very slow if there are many elements, as python will need to go through every item until it finds the one you've asked it to find. dicts and sets are a much faster alternative in these cases, as only a single operation is needed. Appending to the end of lists is very fast, but inserting at the start of lists can also be slow if there are many elements.
 
 ### tuples
 
@@ -114,11 +106,6 @@ Tuples do pretty much the same as lists, except they aren't mutable (you can't c
 
 * e.g. `[50, 'my string']` creates a list.
 * e.g. `(50, 'my string')`, `50, 'my string'`, `(50,)` or `50,` create tuples. The syntax is ambiguous with the syntax for function arguments, so you must include parenthesis in function calls e.g. `print((50,))` will output `(50,)`. Because a comma at the end of the line will create a tuple and is valid syntax, it's easy to enter e.g. `my_num = 50,` by accident, and this can be a source of bugs.
-
-### See also:
-
-* the `array` module for memory-efficient representations of basic (numeric/character) types.
-* `ndarray` from the external `numpy` module provides similar functions and is very commonly used, with a focus on linear algebra and math/scientific functions. 
 
 ### slicing lists and tuples
 
@@ -141,9 +128,34 @@ my_list[:-1] # [0, 1, 2, 3]
 
 Note that `ndarray` from `numpy` (and similar types from various machine learning libraries) behave quite differently from python built-in types when slicing, and are closer to notations used for linear algebra. See also https://numpy.org/doc/stable/reference/arrays.indexing.html.
 
+### list comprehensions
+
+List comprehensions allow compact creation of a new list from something that can also be iterated through. The other iterable object could be another `list`/`tuple`, characters in a `string`, keys in a `dict`, etc). For example, `my_new_list` will be `[0, 1, 3, 4]`:
+
+```python
+my_list = [0, 1, 2, 3, 4]
+my_new_list = [i for i in my_list if i != 2]
+```
+
+This is exactly the same as the below code, only shorter (and I think more readable):
+
+```python
+my_list = [0, 1, 2, 3, 4]
+
+my_new_list = []
+for i in my_list:
+    if i != 2:
+        my_new_list.append(i)
+```
+
+### See also:
+
+* the `array` module for memory-efficient representations of basic (numeric/character) types.
+* `ndarray` from the external `numpy` module provides similar functions and is very commonly used, with a focus on linear algebra and math/scientific functions. 
+
 ## range
 
-The python `range` type allows lazy iteration through a sequence of numbers, in a similar way to the list slice notation (it is called with either `range(stop)` or `range(start, stop, step)`). This basically means that even if you go `range(9999999999)`, it will happen immediately as the numbers are generated on-demand. For example:
+The python `range` type allows lazy iteration through a sequence of numbers, in a similar way to the list slice notation (it is called with either `range(stop)` or `range(start, stop, step)`). This basically means that even if you go `range(9999999999)`, it will happen immediately as the numbers are generated on-demand. Usage example:
 
 ```python
 
