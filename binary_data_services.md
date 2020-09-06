@@ -2,9 +2,9 @@
 
 ## struct — Interpret bytes as packed binary data
 
-The `struct` module allows reading and writing binary data. Similar to the `re` module, it can be used with either encoder/decoder instances or directly with functions. I'll only show the former here to keep things brief (and because I think coding using instances is cleaner, as you can put the format at the top of the file). See also https://docs.python.org/3/library/struct.html#byte-order-size-and-alignment.
+The `struct` module allows reading and writing binary data. Similar to the `re` module, it can be used with either encoder/decoder instances or directly with functions. I'll only show the former here to keep things brief (and because I think coding using instances is cleaner, as you can put the format at the top of the file). See also https://docs.python.org/3/library/struct.html#byte-order-size-and-alignment for byte order characters and the C data type characters.
 
-Note that binary data on different platforms and architectures isn't guaranteed to be the same size, and the byte order may be either big or little-endian. In the below case, we're using network order (big-endian) by using the "!" character.
+Note that binary data on different platforms and architectures isn't guaranteed to be the same size, and the byte order may be either big or little-endian. In the below case, we're using network order (big-endian) by using the "!" character with "i", or a `signed int`.
 
 ```python
 import struct
