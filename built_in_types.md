@@ -34,9 +34,9 @@ Python isn't particular about whether you use single quotes (`'my string'`) or d
 
 There are three common ways of formatting strings:
 
-* <b>`printf`-style formatting:</b> ... 
-* <b>Formatting using `str.format()`:</b> ...
-* <b>`f`-string formatting:</b> ...
+* <b>`printf`-style formatting:</b> `"Hello, %s!" % ("World",)`. `%s` (the equivalent of calling `str(o)` on the object) works in many cases, but the full reference is [here](https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting).
+* <b>Formatting using `str.format()`:</b> `"Hello, {}!".format("World")`. See also the [full reference](https://docs.python.org/3/library/stdtypes.html#str.format).
+* <b>`f`-string formatting (python expressions):</b> `"Hello, {'World'}!"`
 
 There are lots of very convenient methods, too:
 
