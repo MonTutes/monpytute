@@ -38,20 +38,19 @@ There are three common ways of formatting strings:
 * <b>Formatting using `str.format()`:</b> `"Hello, {}!".format("World")`. See also the [full reference](https://docs.python.org/3/library/stdtypes.html#str.format).
 * <b>`f`-string formatting (python expressions):</b> `"Hello, {'World'}!"`
 
-There are lots of very convenient methods, too:
+There are lots of [convenient methods](https://docs.python.org/3/library/stdtypes.html#string-methods), too:
 
 * <b>Casing:</b> `capitalize`/`lower`/`swapcase`/`casefold`/`title`
-* <b>Format String:</b> `format`
+* <b>Join `str` objects in a `list`/`tuple` to make a single `str`:</b> `join`
+* <b>Split by characters:</b> `split`/`rsplit`/`splitlines`
+* <b>Split by first instance of characters:</b> `partition`/`rpartition`
+* <b>Trim characters (often whitespace):</b> `strip`/`lstrip`/`rstrip`
+* <b>Get whether the string starts with/ends with characters:</b> `endswith`/`startswith`
+* <b>Find/count occurences of characters:</b> `find`/`index`/`rfind`/`rindex`/`count`
+* <b>Convert to `bytes` in a given encoding:</b> `encode`
 * <b>Padding:</b> `center`/`expandtabs`/`ljust`/`rjust`
-* <b>Get Whether the String Starts With/Ends With Characters:</b> `endswith`/`startswith`
-* <b>Convert to `bytes` in a Given Encoding:</b> `encode`
-* <b>Find/Count Occurences of Characters:</b> `find`/`index`/`rfind`/`rindex`/`count`
-* <b>Join `str` objects in a `list`/`tuple` to Make a Single `str`:</b> `join`
-* <b>Trim Characters (Often Whitespace):</b> `strip`/`lstrip`/`rstrip`
-* <b>Split by First Instance of Characters:</b> `partition`/`rpartition`
-* <b>Split by Characters:</b> `split`/`rsplit`/`splitlines`
-* <b>Character Translation:</b>: `maketrans`/`translate`
-* `isalnum`/`isalpha`/`isascii`/`isdecimal`/`isdigit`/`islower`/`isnumeric`/`isprintable`/`isspace`/`istitle`/`isupper`/``
+* <b>Character translation:</b>: `maketrans`/`translate`
+* `isalnum`/`isalpha`/`isascii`/`isdecimal`/`isdigit`/`islower`/`isnumeric`/`isprintable`/`isspace`/`istitle`/`isupper`
 
 You might see different prefix characters such as `b`, `r`, `u` or `f` before strings:
 
