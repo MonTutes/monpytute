@@ -132,7 +132,7 @@ Note that `ndarray` from `numpy` (and similar types from various machine learnin
 
 ### list comprehensions
 
-List comprehensions allow compact creation of a new list from something that can also be iterated through. The other iterable object could be another `list`/`tuple`, characters in a `string`, keys in a `dict`, etc). For example, `my_new_list` will be `[0, 1, 3, 4]`:
+List comprehensions allow compact creation of a new list from something that can also be iterated through. The other iterable object could be another `list`/`tuple`, characters in a string, keys in a `dict`, etc). For example, `my_new_list` will be `[0, 1, 3, 4]`:
 
 ```python
 my_list = [0, 1, 2, 3, 4]
