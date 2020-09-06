@@ -10,6 +10,23 @@ Some of the modules are the ones I use most often, as they can help to reduce co
 
 ### namedtuple()
 
+`namedtuple` is kind-of like a type which is somewhere between a `tuple` and a `class`.
+
+They are useful if you need to group a number of related variable together to increase maintenance, but don't need the extensibility of a class. They can be easily converted to a `tuple` or `dict` as needed, and properties can be accessed by name, as shown below. 
+
+```python
+from collections import namedtuple
+DogType = namedtuple('DogType', ['name', 'temperament'])
+
+border_collie = DogType(name="Border Collie", temperament=["playful", "energetic", "intelligent"])
+
+print(border_collie) # -> DogType(name='Border Collie', temperament=['playful', 'energetic', 'intelligent'])
+print(border_collie.name) # -> Border Collie
+print(border_collie.temperament) # -> ["playful", "energetic", "intelligent"
+print(tuple(border_collie)) # -> ('Border Collie', ['playful', 'energetic', 'intelligent'])
+print(border_collie._asdict()) # -> OrderedDict([('name', 'Border Collie'), ('temperament', ['playful', 'energetic', 'intelligent'])])
+```
+
 ### deque
 
 Like a list which you can append/remove efficiently from either the left or right-hand side.
@@ -22,11 +39,17 @@ Like a list which you can append/remove efficiently from either the left or righ
 
 ### Counter
 
+Counters are derived from `dict`, and allows keeping track of how many of a certain 
+
 ### OrderedDict
+
+A `dict` which is guaranteed to have keys in the order in which they were assigned.
+
+Perhaps not as essential as it once was as `dict` objects since python 3.6 are also in the order they were assigned, but it may be a good idea to use this type if your code is likely to be used on older versions or other implementations than CPython, or there is a use for methods like `move_to_end` or `popitem`. 
 
 ### defaultdict
 
-This is basically a nice-to-have which reduces the amount of code needed when you're using the `dict.setdefault()` method a lot. For instance,
+This is not only a nice-to-have which reduces the amount of code needed when you're using the `dict.setdefault()` method a lot, but can also be faster, as a list object isn't created and discarded for subsequent appends. For instance,
 
 ```python
 from collections import defaultdict
@@ -43,14 +66,6 @@ my_dict = {}
 my_dict.setdefault('mykey', []).append(1)
 my_dict.setdefault('mykey', []).append(2)
 ```
-
-and can also be faster, as a list object isn't created and discarded for subsequent appends. 
-
-### UserDict
-
-### UserList
-
-### UserString
 
 ## collections.abc — Abstract Base Classes for Containers
 
