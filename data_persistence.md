@@ -1,0 +1,6 @@
+
+copyreg — Register pickle support functions
+shelve — Python object persistence
+marshal — Internal Python object serialization
+dbm — Interfaces to Unix “databases”
+sqlite3 — DB-API 2.0 interface for SQLite databases
