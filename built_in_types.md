@@ -20,7 +20,7 @@ In python 3, `1 / 2` becomes `0.5` turning into a `float`, but you can get the s
 
 Unlike python 2, python 3 has just a single `int` type. Python 3 ints have variable numbers of bits, and can represent numbers of any size. 
 
-It's worth noting that calling `int(0.5)` as a function will round downwards to `0`, while `round(0.5)` will round up to `1`. You can also use the `int` function to convert a string with an integer in it, e.g. `int("5")` will give `5`. This function doesn't like floating point numbers inside strings, so in these cases you'll need to convert to a float beforehand, e.g. `int(float(5.0))` also gives `5`.
+It's worth noting that calling `int(0.5)` as a function will round downwards to `0`, while `round(0.5)` will round up to `1`. You can also use the `int` function to convert a string with an integer in it, e.g. `int("5")` will give `5`. This function doesn't like floating point numbers inside strings, so in these cases you'll need to convert to a float beforehand, e.g. `int(float("5.0"))` also gives `5`.
 
 <b>Warning:</b> While most of the time you will encounter ordinary python `int`s, some other popular libraries like `numpy` or `pymongo` have their own custom fixed-bit integer/float types which don't behave exactly the same as the builtin ones. These can need special handling when trying to do things like encode them using the `json` module or arithmetic operations, and it's often safer to explicitly coerce them using `int(x)` or `float(x)`. 
 
