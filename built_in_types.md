@@ -83,11 +83,22 @@ See also:
 * the `array` module for memory-efficient representations of basic (numeric/character) types.
 * `ndarray` from the external `numpy` module provides similar functions and is very commonly used, with a focus on linear algebra and math/scientific functions. 
 
--- NB ADD NOTE ABOUT TIME TO ACCESS ELEMENTS!!
+<b>Warning:</b> It's not a good idea to have a `list` as a default function parameter, as any changes will be persistent across function calls. For example:
+
+```python
+def my_function(default_param=["foo"]):
+    print(default_param)
+    default_param.append("bar")
+
+my_function() # -> ["foo"]
+my_function() # -> ["foo", "bar"]
+```
+
+Lookup times for `in my_list` or similar operations can also very slow if there are many elements, as python will need to go through every item until it finds the one you've asked it to find. dicts and sets are a much faster alternative in these cases, as only a single operation is needed.
 
 #### list comprehensions
 
-List comprehensions allow compact creating a new list from something that can also be iterated through (that could be another `list`/`tuple`, characters in a `string`, keys in a `dict`, etc). For example, `my_new_list` will be `[0, 1, 3, 4]`:
+List comprehensions allow compact creation of a new list from something that can also be iterated through. The other iterable object could be another `list`/`tuple`, characters in a `string`, keys in a `dict`, etc). For example, `my_new_list` will be `[0, 1, 3, 4]`:
 
 
 ```python
@@ -148,30 +159,90 @@ for i in range(5, 0, -1):
 
 ### dict
 
-The `dict` type is similar to hash tables or hashmaps in other languages, and allows getting items by keys. While it was not previously the case, note that from python 3.6 the `dict` type is ordered, which means that you can iterate through the keys in the order you assign them. Note that tuples can be used as keys, but that lists can't. As lists are mutable, they could change in between of when they are assigned and when they are accessed, so this is not allowed. 
+The `dict` type is similar to hash tables or hashmaps in other languages, and allows getting items by keys. While it was not previously the case, note that from python 3.6 the `dict` type is ordered, which means that you can iterate through the keys in the order you assign them. Note that tuples can be used as keys, but that lists can't. As lists, dicts and sets are mutable, they could change in between of when they are assigned and when they are accessed, so this is not allowed. 
 
--- NB: ADD NOTE ABOUT HAVING LISTS/DICTS AS FUNCTION PARAMETERS!!
--- NB: ADD NOTE ABOUT DICTS USING MEMORY!!
+As values in dicts are accessed by hash, it is very fast to both check whether a value is in a dict and to retrieve a value. 
 
 ```python
 my_int = 15
 my_float = 5.5
 my_string = "foo"
+my_bytes = b"bar"
 my_tuple = (55, 2, "my string")
 my_list = [55, 2, "my string"]
 my_set = set([55, 25, 2])
 
 my_dict = {}
-my_dict[my_int] = None # -> OK
-my_dict[my_float] = None # -> OK
-my_dict[my_string] = None # -> OK
-my_dict[my_bytes] = None # -> OK
-my_dict[my_tuple] = None # -> OK
+my_dict[my_int] = 0 # -> OK
+my_dict[my_float] = 1 # -> OK
+my_dict[my_string] = 2 # -> OK
+my_dict[my_bytes] = 3 # -> OK
+my_dict[my_tuple] = 4 # -> OK
 
-my_dict[my_list] = None # -> error
-my_dict[my_dict] = None # -> error
-my_dict[my_set] = None # -> error
+my_dict[my_list] = 5 # -> error
+my_dict[my_dict] = 6 # -> error
+my_dict[my_set] = 7 # -> error
+
+my_string in my_dict # -> True
+"bar" in my_dict # -> False
+
+# -> 15 0
+#    5.5 1
+#    foo 2
+#    b'bar' 3
+#    (55, 2, 'my string') 4
+for key, value in my_dict.items():
+    print(key, value)
+
+# -> 15 0
+#    5.5 1
+#    foo 2
+#    b'bar' 3
+#    (55, 2, 'my string') 4
+for key in my_dict:
+    print(key, my_dict[key])
+
+# -> 0
+#    1
+#    2
+#    3
+#    4
+for value in my_dict.values():
+    print(value)
 ```
+
+<b>Warning:</b> Similar to lists, it's not a good idea to have a dict as a default function parameter, as any changes will also be persistent. For example:
+
+```python
+def my_function(default_param={"foo": "bar"}):
+    print(default_param)
+    default_param["foo"] = "foo"
+
+my_function() # -> {"foo": "bar"}
+my_function() # -> {"foo": "foo"}
+```
+
+dicts also initially use quite a lot more memory than lists, although this is not likely to be a problem unless you create thousands of them.
+
+The methods `{}.get(key, default)`, `{}.setdefault(key, default)` are commonly used to reduce code length:
+
+```python
+food_types = {
+    "candy cane": "confectionary",
+    "chocolate": "confectionary",
+    "carrot": "vegetable"
+}
+print(food_types.get("candy cane", "unknown")) # -> "confectionary"
+print(food_types.get("rocky road", "unknown")) # -> "unknown"
+
+foods_by_type = {}
+foods_by_type.setdefault("confectionary", []).append("candy cane")
+foods_by_type.setdefault("confectionary", []).append("chocolate")
+foods_by_type.setdefault("vegetable", []).append("carrot")
+print(foods_by_type["confectionary"]) # -> ["candy cane", "chocolate"]
+```
+
+The `my_dict.update(other_dict)` method also adds keys from the `other_dict` into `my_dict` only if the key wasn't already present in `my_dict`.
 
 ### set
 
