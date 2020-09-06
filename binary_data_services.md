@@ -23,3 +23,12 @@ print(decoded) # -> (5,)
 This can be useful for fast, efficient data retrieval (in many cases faster than using a DB for things like time-series data), and I often use it in combination with the `mmap` module for memory-backed disk retrieval.
 
 ## codecs — Codec registry and base classes
+
+I think I have never used this module directly, but the "standard encodings" table is useful for decoding data which is in different encodings: https://docs.python.org/3/library/codecs.html#standard-encodings.
+
+For example, I have some dictionary data which is in the "shift-jis" encoding, and I can see from that table there are 3 selections: `shift_jis`, `shift_jis_2004` and `shift_jisx0213`. From there, I can open the file by doing something like the following:
+
+```python
+with open(path, 'r', encoding='shift_jis') as f:
+    data = f.read()
+```
