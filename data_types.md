@@ -1,12 +1,65 @@
 # Data Types
 
-Some of the modules are the ones I use most often, as they can help to reduce code or make things more maintainable.
-
 ## datetime — Basic date and time types
+
+### datetime
+
+A type which has the complete years, months, days, hours, minutes, seconds (etc). Here there is a `date.strftime` method for formatting `date` instances to strings and `date.strptime` method for parsing strings created by this method.
+
+```python
+import datetime
+d1 = datetime.datetime(2005, 1, 20, 13, 30, 10)
+print(d1, d1.year, d1.month, d1.day, d1.hour, d1.minute, d1.second) # -> 2005-01-20 13:30:10 2005 1 20 13 30 10
+
+date_string = d1.strftime('%Y-%m-%d')
+print(date_string) # -> 2005-01-20
+
+d2 = datetime.datetime.strptime(date_string, '%Y-%m-%d')
+print(d2) # -> 2005-01-20 00:00:00
+```
+
+### timedelta
+
+A means of adding to or subtracting from a date.   
+
+```python
+import datetime
+d = datetime.datetime(2005, 1, 20, 13, 30, 10)
+print(d - datetime.timedelta(days=10)) # -> 2005-01-10 13:30:10
+```
+
+### date
+
+A basic type which has years, months and days. Strangely, there is a `date.strftime` method for formatting `date` instances to strings, but no corresponding `date.strptime` method for parsing strings created by this method.
+
+```python
+import datetime
+d1 = datetime.date(2005, 1, 20)
+print(d1, d1.year, d1.month, d1.day) # -> 2005-01-20 2005 1 20
+
+date_string = d1.strftime('%Y-%m-%d')
+print(date_string) # -> 2005-01-20
+```
+
+### time
+
+TODO!
+
+### timezone
+
+TODO!
+
+### tzinfo
+
+TODO!
 
 ## calendar — General calendar-related functions
 
+TODO!
+
 ## collections — Container datatypes
+
+Some of the modules are the ones I use most often, as they can help to reduce code or make things more maintainable. The `enum` module below is also `collection`-module-like, and fulfills a similar need to these classes.
 
 ### namedtuple()
 
