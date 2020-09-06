@@ -24,11 +24,11 @@ It's worth noting that calling `int(0.5)` as a function will round downwards to 
 
 <b>Warning:</b> While most of the time you will encounter ordinary python `int`s, some other popular libraries like `numpy` or `pymongo` have their own custom fixed-bit integer/float types which don't behave exactly the same as the builtin ones. These can need special handling when trying to do things like encode them using the `json` module or arithmetic operations, and it's often safer to explicitly coerce them using `int(x)` or `float(x)`. 
 
-## strings/bytes
+## str/bytes
 
-### strings
+### str
 
-Python 3 strings are Unicode, which means they can represent a large majority of the characters in use in the world today. Many programming languages and web browsers only have 2-byte unicode support (UCS-2), which means that characters above ordinal 65535 (such as many emoji) will be represented as two characters. In python 3.3 and up, whether strings take up 1, 2, or 4 bytes per character depends on whether there are characters in your strings which need to use that many bytes. This means for the most part you shouldn't need to worry about this, however note some external libraries could have trouble dealing with these characters.
+Python 3 strings (the `str` type) are Unicode, which means they can represent a large majority of the characters in use in the world today. Many programming languages and web browsers only have 2-byte unicode support (UCS-2), which means that characters above ordinal 65535 (such as many emoji e.g. this lion: :lion_face:) will be represented as two characters. In python 3.3 and up, whether strings take up 1, 2, or 4 bytes per character depends on whether there are characters in your strings which need to use that many bytes. This means for the most part you shouldn't need to worry about this, however note some external libraries could have trouble dealing with these characters.
 
 Python isn't particular about whether you use single quotes (`'my string'`) or double quotes (`"my string"`), although it's best to be consistent. If you want to include a single quote character inside a single-quoted string (or a double quote character inside a double-quoted string), you can use a slash before it: `"\""` or `'\''`. A good alternative if you'd like to use these characters in strings is to use triple quotes (`"""my string"""` or `'''my string'''`), which are known as "string literals". Triple double quotes are often used as "docstrings", which document python code for other people reading your code.
 
@@ -45,8 +45,8 @@ There are lots of [convenient methods](https://docs.python.org/3/library/stdtype
 * <b>Split by characters to create a `list`:</b> `split`/`rsplit`/`splitlines`
 * <b>Split by first instance of characters</b> (to create a list of `[before delimiter, delimiter, after delimiter]`:) `partition`/`rpartition`
 * <b>Trim characters (often whitespace):</b> `strip`/`lstrip`/`rstrip`
-* <b>Get whether the string starts with/ends with characters:</b> `endswith`/`startswith`
-* <b>Find/count occurences of characters:</b> `find`/`index`/`rfind`/`rindex`/`count`
+* <b>Get whether the string starts/ends with characters:</b> `endswith`/`startswith`
+* <b>Find/count occurrences of characters:</b> `find`/`index`/`rfind`/`rindex`/`count`
 * <b>Convert to `bytes` in a given encoding:</b> `encode`
 * <b>Padding:</b> `center`/`expandtabs`/`ljust`/`rjust`
 * <b>Character translation:</b>: `maketrans`/`translate`
@@ -57,7 +57,7 @@ There are lots of [convenient methods](https://docs.python.org/3/library/stdtype
 You might see different prefix characters such as `b`, `r`, `u` or `f` before strings:
 
 * In python 2, `u""` specified a unicode string, but in python 3 it's ignored, and you safely can too.
-* `r""` prefixes are intended for regular expressions, eliminating the need to double-escape backslashes. For example, `r"\b"` is the same as `"\\b"` and will physically contain two characters "\" and "b". 
+* `r""` prefixes are intended for regular expressions, eliminating the need to double-escape backslashes. For example, `r"\b"` is the same as `"\\b"` and will physically contain two characters "\\" and "b". 
 * `f""` ("format prefixes") allow for embedding any python expression inside them. For instance, `f"Hello {'world'}, I'm {22}!"` will give "Hello world, I'm 22!".
 * `b""` "byte prefixes" signify what follows isn't actually a string, but binary byte data. 
 
@@ -106,8 +106,44 @@ for i in my_list:
 
 #### slicing lists and tuples
 
+The syntax `list[start:stop:step]` (where `stop:step` are optional) allow creating a new `list`/`tuple` from ranges of elements. For example:
+
+```python
+my_list = [0, 1, 2, 3, 4]
+
+# Basic (non-slice) notation
+my_list[0] # -> 0
+my_list[-1] # -> 4
+
+# Slice notation
+my_list[::-1] # -> [4, 3, 2, 1, 0]
+my_list[::2] # -> [0, 2, 4]
+my_list[1:3] # [1, 2]
+my_list[1:] # [1, 2, 3, 4]
+my_list[:-1] # [0, 1, 2, 3]
+```
+
+Note that `ndarray` from `numpy` (and similar types from various machine learning libraries) behave quite differently from python built-in types when slicing, and are closer to notations used for linear algebra. See also https://numpy.org/doc/stable/reference/arrays.indexing.html.
+
 ### range
+
+The python `range` type allows lazy iteration through a sequence of numbers, in a similar way to the list slice notation (it is called with either `range(stop)` or `range(start, stop, step)`). This basically means that even if you go `range(9999999999)`, it will happen immediately as the numbers are generated on-demand. For example:
+
+```python
+
+# -> 0, 1, 2, 3, 4. Note that 5 is never reached.
+for i in range(5):
+    print(i, end=" ") 
+
+# -> 1, 4, 7
+for i in range(1, 8, 3):
+    print(i, end=" ")
+
+# -> 5, 4, 3, 2, 1
+for i in range(5, 0, -1):
+    print(i, end=" ")
+```
 
 ### dict
 
-### 
+### set
