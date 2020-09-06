@@ -104,10 +104,16 @@ Lookup times for `"foo" in my_list` or similar operations can also very slow if 
 
 ### tuples
 
-Tuples do pretty much the same as lists, except they aren't mutable (you can't change them once you've created them). 
+Tuples do pretty much the same as lists, except they aren't mutable (you can't change them once you've created them). All of the following create tuples:
 
-* e.g. `[50, 'my string']` creates a list.
-* e.g. `(50, 'my string')`, `50, 'my string'`, `(50,)` or `50,` create tuples. The syntax is ambiguous with the syntax for function arguments, so you must include parenthesis in function calls e.g. `print((50,))` will output `(50,)`. Because a comma at the end of the line will create a tuple and is valid syntax, it's easy to enter e.g. `my_num = 50,` by accident, and this can be a source of bugs.
+```python
+tuple_1 = (50, "my string")
+tuple_2 = 50, "my string"
+tuple_3 = (50,)
+tuple_4 = 50,
+```
+
+The syntax is ambiguous with the syntax for function arguments, so you must include parenthesis in function calls e.g. `print((50,))` will output `(50,)`. Because a comma at the end of the line will create a tuple and is valid syntax, it's easy to enter e.g. `my_num = 50,` by accident, and this can be a source of bugs.
 
 ### slicing lists and tuples
 
