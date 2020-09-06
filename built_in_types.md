@@ -247,7 +247,7 @@ my_function() # -> {"foo": "bar"}
 my_function() # -> {"foo": "foo"}
 ```
 
-dicts also initially use more memory than lists, although this is not likely to be a problem unless you create tens of thousands of them.
+Prior to python 3.6, dicts used to use a lot more memory than lists, however this is [no longer](http://www.jessicayung.com/how-python-implements-dictionaries/) as a much of a problem.
 
 The methods `{}.get(key, default)`, `{}.setdefault(key, default)` are commonly used to reduce code length:
 
