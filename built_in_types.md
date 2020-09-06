@@ -83,6 +83,8 @@ See also:
 * the `array` module for memory-efficient representations of basic (numeric/character) types.
 * `ndarray` from the external `numpy` module provides similar functions and is very commonly used, with a focus on linear algebra and math/scientific functions. 
 
+-- NB ADD NOTE ABOUT TIME TO ACCESS ELEMENTS!!
+
 #### list comprehensions
 
 List comprehensions allow compact creating a new list from something that can also be iterated through (that could be another `list`/`tuple`, characters in a `string`, keys in a `dict`, etc). For example, `my_new_list` will be `[0, 1, 3, 4]`:
@@ -146,4 +148,42 @@ for i in range(5, 0, -1):
 
 ### dict
 
+The `dict` type is similar to hash tables or hashmaps in other languages, and allows getting items by keys. While it was not previously the case, note that from python 3.6 the `dict` type is ordered, which means that you can iterate through the keys in the order you assign them. Note that tuples can be used as keys, but that lists can't. As lists are mutable, they could change in between of when they are assigned and when they are accessed, so this is not allowed. 
+
+-- NB: ADD NOTE ABOUT HAVING LISTS/DICTS AS FUNCTION PARAMETERS!!
+-- NB: ADD NOTE ABOUT DICTS USING MEMORY!!
+
+```python
+my_int = 15
+my_float = 5.5
+my_string = "foo"
+my_tuple = (55, 2, "my string")
+my_list = [55, 2, "my string"]
+my_set = set([55, 25, 2])
+
+my_dict = {}
+my_dict[my_int] = None # -> OK
+my_dict[my_float] = None # -> OK
+my_dict[my_string] = None # -> OK
+my_dict[my_bytes] = None # -> OK
+my_dict[my_tuple] = None # -> OK
+
+my_dict[my_list] = None # -> error
+my_dict[my_dict] = None # -> error
+my_dict[my_set] = None # -> error
+```
+
 ### set
+
+Sets are like dicts with only keys. They are useful for identity tests, and asking whether something exists in a collection of objects. For example:
+
+```python
+my_set = set(['a'])
+my_set.add('b')
+
+'a' in my_set # -> True
+'b' in my_set # -> True
+'c' in my_set # -> False
+```
+
+Every item in a set is unique, which is a useful property when you want to remove duplicates. `sorted(set([0, 1, 1, 2, 3, 3, 4]))` gives `[0, 1, 2, 3, 4]`, for instance.
