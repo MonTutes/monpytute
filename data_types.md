@@ -8,6 +8,30 @@ Some of the modules are the ones I use most often, as they can help to reduce co
 
 ## collections — Container datatypes
 
+### namedtuple()
+
+### deque
+
+Like a list which you can append/remove efficiently from either the left or right-hand side.
+
+```print
+
+```
+
+### ChainMap
+
+### Counter
+
+### OrderedDict
+
+### defaultdict
+
+### UserDict
+
+### UserList
+
+### UserString
+
 ## collections.abc — Abstract Base Classes for Containers
 
 ## heapq — Heap queue algorithm
@@ -22,7 +46,7 @@ print(heapq.nsmallest(3, [5, 10, 20, 40, 80])) # -> [5, 10, 20]
 
 ## bisect — Array bisection algorithm
 
-Python calls this "bisect" or a bisection algorithm, but virtually everywhere else I've seen these functions they've been called ["binary sort functions"](https://en.wikipedia.org/wiki/Binary_search_algorithm).
+Python calls this "bisect" or a bisection algorithm, but virtually everywhere else I've seen these functions they've been called ["binary search"](https://en.wikipedia.org/wiki/Binary_search_algorithm) or "insertion sort" functions.
 
 They allow fast, memory-efficient finding of items in a sorted list. There are 2 main functions: either to the left (`bisect_left`) or right (`bisect_right`) of an item. While there `insort_left` and `insort_right` functions, I've never used these, preferring to batch sort as calling `list.insert()` can be inefficient.
 
@@ -33,6 +57,26 @@ print(bisect_right([0, 5, 10, 15], 10)) # -> 3
 ```
 
 ## array — Efficient arrays of numeric values
+
+This module allows very memory-efficient reading and writing of binary data, but I've found you need to be a bit careful as it doesn't exactly mirror the `struct` module's types, and you may need to call `array.byteswap()` if the machine which wrote the data has the opposite [endian-ness](https://en.wikipedia.org/wiki/Comparison_of_instruction_set_architectures#Endianness).
+
+```python
+from os.path import getsize
+from array import array
+
+a = array('I')
+a.append(50)
+a.append(55)
+
+with open("my_binary_data.bin", "wb") as f:
+    a.tofile(f)
+
+b = array('I')
+with open("my_binary_data.bin", "rb") as f:
+    b.fromfile(f, getsize("my_binary_data.bin")//a.itemsize)
+
+print(b) # -> array('I', [50, 55])
+```
 
 ## weakref — Weak references
 
