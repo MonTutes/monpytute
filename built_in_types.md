@@ -144,17 +144,17 @@ The python `range` type allows lazy iteration through a sequence of numbers, in 
 
 ```python
 
-# -> 0, 1, 2, 3, 4. Note that 5 is never reached.
 for i in range(5):
     print(i, end=" ") 
+# -> 0, 1, 2, 3, 4. Note that 5 is never reached.
 
-# -> 1, 4, 7
 for i in range(1, 8, 3):
     print(i, end=" ")
+# -> 1, 4, 7
 
-# -> 5, 4, 3, 2, 1
 for i in range(5, 0, -1):
     print(i, end=" ")
+# -> 5, 4, 3, 2, 1
 ```
 
 ### dict
@@ -186,29 +186,29 @@ my_dict[my_set] = 7 # -> error
 my_string in my_dict # -> True
 "bar" in my_dict # -> False
 
-# -> 15 0
-#    5.5 1
-#    foo 2
-#    b'bar' 3
-#    (55, 2, 'my string') 4
 for key, value in my_dict.items():
     print(key, value)
-
 # -> 15 0
 #    5.5 1
 #    foo 2
 #    b'bar' 3
 #    (55, 2, 'my string') 4
+
 for key in my_dict:
     print(key, my_dict[key])
+# -> 15 0
+#    5.5 1
+#    foo 2
+#    b'bar' 3
+#    (55, 2, 'my string') 4
 
+for value in my_dict.values():
+    print(value)
 # -> 0
 #    1
 #    2
 #    3
 #    4
-for value in my_dict.values():
-    print(value)
 ```
 
 <b>Warning:</b> Similar to lists, it's not a good idea to have a dict as a default function parameter, as any changes will also be persistent. For example:
