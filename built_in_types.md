@@ -159,7 +159,9 @@ for i in range(5, 0, -1):
 
 ### dict
 
-The `dict` type is similar to hash tables or hashmaps in other languages, and allows getting items by keys. While it was not previously the case, note that from python 3.6 the `dict` type is ordered, which means that you can iterate through the keys in the order you assign them. Note that tuples can be used as keys, but that lists can't. As lists, dicts and sets are mutable, they could change in between of when they are assigned and when they are accessed, so this is not allowed. 
+The `dict` type is similar to hash tables or hashmaps in other languages, and allows getting items by keys. They can be created using either literal syntax: `{key: value}` or function syntax: `dict(key=value)`. Note that the `**` operator can allow for dicts to be used as keyword arguments, meaning that `dict(**{"foo": "bar"})` will return the dict `{"foo": "bar"}`.
+
+While it was not previously the case, note that from python 3.6 the `dict` type is ordered, which means that you can iterate through the keys in the order you assign them. Note that tuples can be used as keys, but that lists can't. As lists, dicts and sets are mutable, they could change in between of when they are assigned and when they are accessed, so this is not allowed. 
 
 As values in dicts are accessed by hash, it is very fast to both check whether a value is in a dict and to retrieve a value. 
 
@@ -249,12 +251,12 @@ The `my_dict.update(other_dict)` method also adds keys from the `other_dict` int
 Sets are like dicts with only keys. They are useful for identity tests, and asking whether something exists in a collection of objects. For example:
 
 ```python
-my_set = set(['a'])
-my_set.add('b')
+my_set = set(["a"])
+my_set.add("b")
 
-'a' in my_set # -> True
-'b' in my_set # -> True
-'c' in my_set # -> False
+"a" in my_set # -> True
+"b" in my_set # -> True
+"c" in my_set # -> False
 ```
 
 Every item in a set is unique, which is a useful property when you want to remove duplicates. `sorted(set([0, 1, 1, 2, 3, 3, 4]))` gives `[0, 1, 2, 3, 4]`, for instance.
