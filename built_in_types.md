@@ -87,7 +87,7 @@ my_list.append(6) # Append 6 to the end of the list
 print(my_list) # -> [1, 2, 3, 6]
 ```
 
-Note that the `*` operator can allow for lists to be used as positional arguments, meaning that `list(*["foo", "bar"])` will return the list `["foo", "bar"]`.
+Note that the `*` operator can allow for lists to be used as positional arguments, meaning that `print(*["foo", "bar"])` will output "foo bar" rather than `["foo", "bar"]` as it is equivalent to calling `print("foo", "bar")`.
 
 <b>Warning:</b> It's not a good idea to have a `list` as a default function parameter, as any changes will be persistent across function calls. For example:
 
