@@ -73,15 +73,7 @@ To convert to bytes type from `str`, you can use the `.encode()` method, e.g. `"
 
 ## tuple/list
 
-Tuples do pretty much the same as lists, except they aren't mutable (you can't change them once you've created them). 
-
-* e.g. `[50, 'my string']` creates a list.
-* e.g. `(50, 'my string')`, `50, 'my string'`, `(50,)` or `50,` create tuples. The syntax is ambiguous with the syntax for function arguments, so you must include parenthesis in function calls e.g. `print((50,))` will output `(50,)`. Because a comma at the end of the line will create a tuple and is valid syntax, it's easy to enter e.g. `my_num = 50,` by accident, and this can be a source of bugs.
-
-See also:
-
-* the `array` module for memory-efficient representations of basic (numeric/character) types.
-* `ndarray` from the external `numpy` module provides similar functions and is very commonly used, with a focus on linear algebra and math/scientific functions. 
+### lists
 
 <b>Warning:</b> It's not a good idea to have a `list` as a default function parameter, as any changes will be persistent across function calls. For example:
 
@@ -96,10 +88,9 @@ my_function() # -> ["foo", "bar"]
 
 Lookup times for `in my_list` or similar operations can also very slow if there are many elements, as python will need to go through every item until it finds the one you've asked it to find. dicts and sets are a much faster alternative in these cases, as only a single operation is needed.
 
-### list comprehensions
+#### list comprehensions
 
 List comprehensions allow compact creation of a new list from something that can also be iterated through. The other iterable object could be another `list`/`tuple`, characters in a `string`, keys in a `dict`, etc). For example, `my_new_list` will be `[0, 1, 3, 4]`:
-
 
 ```python
 my_list = [0, 1, 2, 3, 4]
@@ -116,6 +107,18 @@ for i in my_list:
     if i != 2:
         my_new_list.append(i)
 ```
+
+### tuples
+
+Tuples do pretty much the same as lists, except they aren't mutable (you can't change them once you've created them). 
+
+* e.g. `[50, 'my string']` creates a list.
+* e.g. `(50, 'my string')`, `50, 'my string'`, `(50,)` or `50,` create tuples. The syntax is ambiguous with the syntax for function arguments, so you must include parenthesis in function calls e.g. `print((50,))` will output `(50,)`. Because a comma at the end of the line will create a tuple and is valid syntax, it's easy to enter e.g. `my_num = 50,` by accident, and this can be a source of bugs.
+
+### See also:
+
+* the `array` module for memory-efficient representations of basic (numeric/character) types.
+* `ndarray` from the external `numpy` module provides similar functions and is very commonly used, with a focus on linear algebra and math/scientific functions. 
 
 ### slicing lists and tuples
 
