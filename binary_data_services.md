@@ -10,7 +10,8 @@ Note that binary data on different platforms and architectures isn't guaranteed 
 import struct
 
 enc_dec = struct.Struct("!i")
-print(enc_dec.size) # -> 4 on my PC, may not always be the same on others though I think it normally will be the same.
+print(enc_dec.size) # -> 4 (indicating 4 bytes) on my PC, may not always be the same 
+                    #    on others though I think it normally will be the same.
 
 encoded = enc_dec.pack(5)
 print(encoded) # -> b'\x00\x00\x00\x05'
