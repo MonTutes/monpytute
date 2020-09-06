@@ -1,6 +1,18 @@
 # Built-in Types
 
-Python is duck-typed, which means if it looks like an integer (e.g. `x = 50`), a floating point number (`x = 1.5`), a string (`s = "my string"` or `s = 'my string'`)..then that's what it will be.
+Python is duck-typed, which means if it looks like an integer (e.g. `x = 50`), a floating point number (`x = 1.5`), a string (`s = "my string"` or `s = 'my string'`)..then that's what it will be. Below is a quick example of creating the most common python types:
+
+```python
+my_int = 15
+my_float = 5.5
+my_string = "foo"
+my_list = [55, 2, "my string"]
+my_dict = {
+    "string key": "string value", 
+    2: 50
+}
+my_set = set([55, 25, 2])
+```
 
 ## int/float
 
