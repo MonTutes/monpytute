@@ -247,7 +247,7 @@ my_function() # -> {"foo": "bar"}
 my_function() # -> {"foo": "foo"}
 ```
 
-dicts also initially use quite a lot more memory than lists, although this is not likely to be a problem unless you create thousands of them.
+dicts also initially use more memory than lists, although this is not likely to be a problem unless you create tens of thousands of them.
 
 The methods `{}.get(key, default)`, `{}.setdefault(key, default)` are commonly used to reduce code length:
 
