@@ -122,6 +122,29 @@ my_dict.setdefault('mykey', []).append(2)
 
 ## collections.abc — Abstract Base Classes for Containers
 
+This module provides basic template-like functionality, allowing for a level of ["design by contract"](https://en.wikipedia.org/wiki/Design_by_contract) to improve maintainability when working on more complex codebases.
+
+This can be useful for creating e.g. a base "template" class which a local, network (different kinds of implementations which share the same base methods). See also the [Liskov Substitution Principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle).
+
+Unfortunately, python abstract classes aren't strict when it comes to things like variable types or number of variables, and this module only does things like check for the presence of methods.
+
+```python
+
+import abc
+
+class TemplateClass(abc.ABC):
+    @abc.abstractmethod
+    def requiredfn(self):
+        pass
+
+class DerivedClass(TemplateClass):
+    def requiredfn():
+        print("overriden method")
+
+inst = TemplateClass() # -> "TypeError: Can't instantiate abstract class TemplateClass with abstract methods requiredfn"
+inst = DerivedClass() # -> OK, as requiredfn is overridden
+```
+
 ## heapq — Heap queue algorithm
 
 I have only ever used 2 methods in this module: `nlargest` and `nsmallest`.
