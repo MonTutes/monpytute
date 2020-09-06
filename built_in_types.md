@@ -32,6 +32,12 @@ Python 3 strings are Unicode, which means they can represent a large majority of
 
 Python isn't particular about whether you use single quotes (`'my string'`) or double quotes (`"my string"`), although it's best to be consistent. If you want to include a single quote character inside a single-quoted string (or a double quote character inside a double-quoted string), you can use a slash before it: `"\""` or `'\''`. A good alternative if you'd like to use these characters in strings is to use triple quotes (`"""my string"""` or `'''my string'''`), which are known as "string literals". Triple double quotes are often used as "docstrings", which document python code for other people reading your code.
 
+There are three common ways of formatting strings:
+
+* <b>`printf`-style formatting:</b> ... 
+* <b>Formatting using `str.format()`:</b> ...
+* <b>`f`-string formatting:</b> ...
+
 There are lots of very convenient methods, too:
 
 * <b>Casing:</b> `capitalize`/`lower`/`swapcase`/`casefold`/`title`
