@@ -40,17 +40,19 @@ There are three common ways of formatting strings:
 
 There are lots of [convenient methods](https://docs.python.org/3/library/stdtypes.html#string-methods), too:
 
-* <b>Casing:</b> `capitalize`/`lower`/`swapcase`/`casefold`/`title`
+* <b>Casing:</b> `lower`/`upper`/`capitalize`/`title`/`swapcase`/`casefold`
 * <b>Join `str` objects in a `list`/`tuple` to make a single `str`:</b> `join`
-* <b>Split by characters:</b> `split`/`rsplit`/`splitlines`
-* <b>Split by first instance of characters:</b> `partition`/`rpartition`
+* <b>Split by characters to create a `list`:</b> `split`/`rsplit`/`splitlines`
+* <b>Split by first instance of characters</b> (to create a list of `[before delimiter, delimiter, after delimiter]`:) `partition`/`rpartition`
 * <b>Trim characters (often whitespace):</b> `strip`/`lstrip`/`rstrip`
 * <b>Get whether the string starts with/ends with characters:</b> `endswith`/`startswith`
 * <b>Find/count occurences of characters:</b> `find`/`index`/`rfind`/`rindex`/`count`
 * <b>Convert to `bytes` in a given encoding:</b> `encode`
 * <b>Padding:</b> `center`/`expandtabs`/`ljust`/`rjust`
 * <b>Character translation:</b>: `maketrans`/`translate`
-* `isalnum`/`isalpha`/`isascii`/`isdecimal`/`isdigit`/`islower`/`isnumeric`/`isprintable`/`isspace`/`istitle`/`isupper`
+* <b>Miscellaneous tests:</b> `isalnum`/`isascii`/`isprintable`/`isspace`
+* <b>Numeric tests:</b> `isdecimal`/`isdigit`/`isnumeric`
+* <b>Alphabetic tests:</b> `islower`/`isupper`/`istitle`/`isalpha`
 
 You might see different prefix characters such as `b`, `r`, `u` or `f` before strings:
 
