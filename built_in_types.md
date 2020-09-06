@@ -68,16 +68,22 @@ See also:
 
 List comprehensions allow compact creating a new list from something that can also be iterated through (that could be another `list`/`tuple`, characters in a `string`, keys in a `dict`, etc). For example, `my_new_list` will be `[0, 1, 3, 4]`:
 
-    my_list = [0, 1, 2, 3, 4]
-    my_new_list = [i for i in my_list if i != 2]
+
+```python
+my_list = [0, 1, 2, 3, 4]
+my_new_list = [i for i in my_list if i != 2]
+```
 
 This is exactly the same as the below code, only shorter (and I think more readable):
 
-    my_list = [0, 1, 2, 3, 4]
-    my_new_list = []
-    for i in my_list:
-        if i != 2:
-            my_new_list.append(i)
+```python
+my_list = [0, 1, 2, 3, 4]
+
+my_new_list = []
+for i in my_list:
+    if i != 2:
+        my_new_list.append(i)
+```
 
 #### slicing lists and tuples
 
