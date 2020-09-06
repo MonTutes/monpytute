@@ -122,7 +122,7 @@ my_dict.setdefault('mykey', []).append(2)
 
 ## collections.abc — Abstract Base Classes for Containers
 
-This module provides basic template-like functionality, allowing for a level of ["design by contract"](https://en.wikipedia.org/wiki/Design_by_contract) to improve maintainability when working on more complex codebases.
+This module provides basic abstract class functionality like is seen in other languages like Java, allowing for a level of ["design by contract"](https://en.wikipedia.org/wiki/Design_by_contract) to improve maintainability when working on more complex codebases.
 
 This can be useful for creating e.g. a base "template" class which a local, network (different kinds of implementations which share the same base methods). See also the [Liskov Substitution Principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle).
 
