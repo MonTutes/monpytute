@@ -71,7 +71,7 @@ To convert to bytes type from `str`, you can use the `.encode()` method, e.g. `"
 
 <b>Warning:</b> `byte` type indexing doesn't behave the same as strings. For example `b"my string"[0]` will give `109` (the ordinal code of "m" as an `int`), while `b"my string"[0:2]` will return a `bytes` object of `b"my"`. Similarly, iterating through a `bytes` type will output integers, e.g. `for i in b"ab": print(i)` will output `97` and `98`. Also note that bytes methods such as `replace` need `bytes`, not string arguments (e.g. `b"my string".replace(b"my", b"your")` will give `b'your string'`.
 
-### tuple/list
+## tuple/list
 
 Tuples do pretty much the same as lists, except they aren't mutable (you can't change them once you've created them). 
 
@@ -96,7 +96,7 @@ my_function() # -> ["foo", "bar"]
 
 Lookup times for `in my_list` or similar operations can also very slow if there are many elements, as python will need to go through every item until it finds the one you've asked it to find. dicts and sets are a much faster alternative in these cases, as only a single operation is needed.
 
-#### list comprehensions
+### list comprehensions
 
 List comprehensions allow compact creation of a new list from something that can also be iterated through. The other iterable object could be another `list`/`tuple`, characters in a `string`, keys in a `dict`, etc). For example, `my_new_list` will be `[0, 1, 3, 4]`:
 
@@ -117,7 +117,7 @@ for i in my_list:
         my_new_list.append(i)
 ```
 
-#### slicing lists and tuples
+### slicing lists and tuples
 
 The syntax `list[start:stop:step]` (where `stop:step` are optional) allow creating a new `list`/`tuple` from ranges of elements. For example:
 
@@ -138,7 +138,7 @@ my_list[:-1] # [0, 1, 2, 3]
 
 Note that `ndarray` from `numpy` (and similar types from various machine learning libraries) behave quite differently from python built-in types when slicing, and are closer to notations used for linear algebra. See also https://numpy.org/doc/stable/reference/arrays.indexing.html.
 
-### range
+## range
 
 The python `range` type allows lazy iteration through a sequence of numbers, in a similar way to the list slice notation (it is called with either `range(stop)` or `range(start, stop, step)`). This basically means that even if you go `range(9999999999)`, it will happen immediately as the numbers are generated on-demand. For example:
 
@@ -157,7 +157,7 @@ for i in range(5, 0, -1):
 # -> 5, 4, 3, 2, 1
 ```
 
-### dict
+## dict
 
 The `dict` type is similar to hash tables or hashmaps in other languages, and allows getting items by keys. They can be created using either literal syntax: `{key: value}` or function syntax: `dict(key=value)`. Note that the `**` operator can allow for dicts to be used as keyword arguments, meaning that `dict(**{"foo": "bar"})` will return the dict `{"foo": "bar"}`.
 
@@ -246,7 +246,7 @@ print(foods_by_type["confectionary"]) # -> ["candy cane", "chocolate"]
 
 The `my_dict.update(other_dict)` method also adds keys from the `other_dict` into `my_dict` only if the key wasn't already present in `my_dict`.
 
-### set
+## set
 
 Sets are like dicts with only keys. They are useful for identity tests, and asking whether something exists in a collection of objects. For example:
 
