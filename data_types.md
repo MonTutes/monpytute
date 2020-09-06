@@ -138,7 +138,7 @@ class TemplateClass(abc.ABC):
         pass
 
 class DerivedClass(TemplateClass):
-    def requiredfn():
+    def requiredfn(self):
         print("overriden method")
 
 inst = TemplateClass() # -> "TypeError: Can't instantiate abstract class TemplateClass with abstract methods requiredfn"
