@@ -84,7 +84,38 @@ print(b) # -> array('I', [50, 55])
 
 ## copy — Shallow and deep copy operations
 
+There are two functions - `copy` for shallow copy, and `deepcopy` for deep copying objects.
+
+```python
+from copy import copy, deepcopy
+
+my_list = [[1, 2, 3]]
+copied_my_list = copy(my_list)
+deepcopied_my_list = deepcopy(my_list)
+
+my_list.append(5)
+my_list[0].append(55)
+
+print(copied_my_list) # -> [[1, 2, 3, 55]]
+print(deepcopied_my_list) # -> [[1, 2, 3]]
+```
+
+Here, the shallow copied object didn't have the 5 appended on the parent list, but it's clear the child list is a reference to the original (uncopied) object. `deepcopy` might be slower, but it can avoid this kind of problem.
+
 ## pprint — Data pretty printer
+
+A module which is useful for printing large, complex data types to console.
+
+```python
+from pprint import pprint
+o = {55: {33: {22: {"sleep": ["The quick brown fox jumps over the lazy dog"*4]}}}}
+
+pprint(o)
+# -> {55: {33: {22: {'sleep': ['The quick brown fox jumps over the lazy dogThe '
+#                          'quick brown fox jumps over the lazy dogThe quick '
+#                          'brown fox jumps over the lazy dogThe quick brown '
+#                          'fox jumps over the lazy dog']}}}}
+```
 
 ## reprlib — Alternate repr() implementation
 
