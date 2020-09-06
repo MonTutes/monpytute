@@ -50,9 +50,9 @@ There are lots of [convenient methods](https://docs.python.org/3/library/stdtype
 * <b>Convert to `bytes` in a given encoding:</b> `encode`
 * <b>Padding:</b> `center`/`expandtabs`/`ljust`/`rjust`
 * <b>Character translation:</b>: `maketrans`/`translate`
-* <b>Miscellaneous tests:</b> `isalnum`/`isascii`/`isprintable`/`isspace`
 * <b>Numeric tests:</b> `isdecimal`/`isdigit`/`isnumeric`
 * <b>Alphabetic tests:</b> `islower`/`isupper`/`istitle`/`isalpha`
+* <b>Miscellaneous tests:</b> `isalnum`/`isascii`/`isprintable`/`isspace`
 
 You might see different prefix characters such as `b`, `r`, `u` or `f` before strings:
 
@@ -69,7 +69,7 @@ To convert to bytes type from `str`, you can use the `.encode()` method, e.g. `"
 
 (There is also the `bytearray` type which is like a mutable `bytes` type which can be used with `memoryview` for higher performance, but it's best not to prematurely optimize!) 
 
-<b>Warning:</b> `byte` type indexing doesn't behave the same as strings. For example `b"my string"[0]` will give `109` (the ordinal code of "m" as an `int`), while `b"my string"[0:2]` will return a `bytes` object of `b"my"`. Similarly, iterating through a `bytes` type will output integers, e.g. `for i in b"ab": print(i)` will output `97` and `98`. Also note that bytes methods such as `replace` need `bytes`, not string arguments (e.g. `b"my string".replace(b"my", b"your")` will give `b'your string'`.
+<b>Warning:</b> `byte` type indexing doesn't behave the same as strings. For example `b"my string"[0]` will give `109` (the ordinal code of "m" as an `int`), while `b"my string"[0:2]` will return a `bytes` object of `b"my"`. Similarly, iterating through a `bytes` type will output integers, e.g. `for i in b"ab": print(i)` will output `97` and `98`. Also note that bytes methods such as `replace` need `bytes`, not string arguments (e.g. `b"my bytes".replace(b"my", b"your")` will give `b'your bytes'`.
 
 ## tuple/list
 
@@ -86,6 +86,8 @@ my_list = [1, 2, 3]
 my_list.append(6) # Append 6 to the end of the list
 print(my_list) # -> [1, 2, 3, 6]
 ```
+
+Note that the `*` operator can allow for lists to be used as positional arguments, meaning that `list(*["foo", "bar"])` will return the list `["foo", "bar"]`.
 
 <b>Warning:</b> It's not a good idea to have a `list` as a default function parameter, as any changes will be persistent across function calls. For example:
 
