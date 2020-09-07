@@ -9,7 +9,9 @@ A work-in-progress.
 * Built-in Exceptions
 * Text Processing Services
 * [Binary Data Services](binary_data_services.md)
+  > `struct`, `codecs`
 * [Data Types](data_types.md)
+  > `datetime`, `calendar`, `collections`, `heapq`, `bisect`, `array`, `weakref`, `types`, `copy`, `pprint`, `reprlib`, `enum`
 * [Numeric and Mathematical Modules](numeric_mathematical.md)
 * Functional Programming Modules
 * [File and Directory Access](file_directory_access.md)
