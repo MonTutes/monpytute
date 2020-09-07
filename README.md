@@ -5,7 +5,7 @@ A quick intro to python types+standard module, with an emphasis on practical use
 A work-in-progress.
 
 * [Built-in types](built_in_types.md)
->     `int`/`float`, `str/bytes`, `tuple`/`list`, `range()`, `dict`, `set`
+  > `int`/`float`, `str/bytes`, `tuple`/`list`, `range()`, `dict`, `set`
 * Built-in Exceptions
 * Text Processing Services
 * [Binary Data Services](binary_data_services.md)
