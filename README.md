@@ -16,7 +16,8 @@ A work-in-progress.
   ```
 * [Data Types](data_types.md)
   ```python
-  datetime, calendar, collections, heapq, bisect, array, weakref, types, copy, pprint, reprlib, enum
+  data types: datetime, calendar, collections, array, weakref, types, enum
+  fns for working with them: heapq, bisect, copy, pprint, reprlib
   ```
 * [Numeric and Mathematical Modules](numeric_mathematical.md)
   ```python
