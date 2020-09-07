@@ -5,27 +5,27 @@ A quick intro to python types+standard module, with an emphasis on practical use
 A work-in-progress.
 
 * [Built-in types](built_in_types.md)
-  ```python
+  ```
   int, float, str, bytes, tuple, list, range(), dict, set
   ```
 * Built-in Exceptions
 * Text Processing Services
 * [Binary Data Services](binary_data_services.md)
-  ```python
+  ```
   struct, codecs
   ```
 * [Data Types](data_types.md)
-  ```python
+  ```
   data types: datetime, calendar, collections, array, weakref, types, enum
   fns for working with them: heapq, bisect, copy, pprint, reprlib
   ```
 * [Numeric and Mathematical Modules](numeric_mathematical.md)
-  ```python
+  ```
   numbers, math, cmath, decimal, fractions, random, statistics
   ```
 * Functional Programming Modules
 * [File and Directory Access](file_directory_access.md)
-  ```python
+  ```
   pathlib, os.path, fileinput, stat, filecmp, tempfile, glob, fnmatch, linecache, shutil
   ```
 * [Data Persistence](data_persistence.md)
