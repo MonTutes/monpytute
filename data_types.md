@@ -43,7 +43,18 @@ print(date_string) # -> 2005-01-20
 
 ### time
 
-TODO!
+Provides a hours, minutes, seconds and microseconds without a date.
+
+```python
+import datetime
+
+inst = datetime.time(hour=14, minute=25, second=30, microsecond=999999, tzinfo=None)
+print(inst) # -> 14:25:30.999999
+print(inst.hour, inst.minute, inst.second, inst.microsecond) # -> 14 25 30 999999
+print(inst.strftime("%H:%M:%S")) # -> 14:25:30
+print(inst.strftime("%I:%M:%S %p")) # -> 02:25:30 PM
+print(inst.isoformat()) # -> 14:25:30.999999
+```
 
 ### timezone
 
