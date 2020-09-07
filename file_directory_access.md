@@ -2,6 +2,45 @@
 
 ## pathlib — Object-oriented filesystem paths
 
+Path
+
+cwd
+home
+stat
+chmod
+exists
+expanduser
+glob
+group
+is_dir
+is_file
+is_mount
+is_symlink
+is_socket
+is_fifo
+is_block_device
+is_char_device
+iterdir
+lchmod
+lstat
+mkdir
+open
+owner
+read_bytes
+read_text
+rename
+replace
+resolve
+rglob
+rmdir
+samefile
+symlink_to
+touch
+unlink
+link_to
+write_bytes
+write_text
+
 ## os.path — Common pathname manipulations
 
 ## fileinput — Iterate over lines from multiple input streams
