@@ -29,6 +29,9 @@ A work-in-progress.
   pathlib, os.path, fileinput, stat, filecmp, tempfile, glob, fnmatch, linecache, shutil
   ```
 * [Data Persistence](data_persistence.md)
+  ```
+  copyreg, shelve, marshal, dbm, sqlite3
+  ```
 * [Data Compression and Archiving](data_compression_archiving.md)
 * File Formats
 * [Cryptographic Services](cryptographic_services.md)
