@@ -11,14 +11,22 @@ A work-in-progress.
 * Built-in Exceptions
 * Text Processing Services
 * [Binary Data Services](binary_data_services.md)
-  > `struct`, `codecs`
+  ```python
+  struct, codecs
+  ```
 * [Data Types](data_types.md)
-  > `datetime`, `calendar`, `collections`, `heapq`, `bisect`, `array`, `weakref`, `types`, `copy`, `pprint`, `reprlib`, `enum`
+  ```python
+  datetime, calendar, collections, heapq, bisect, array, weakref, types, copy, pprint, reprlib, enum
+  ```
 * [Numeric and Mathematical Modules](numeric_mathematical.md)
-  > `numbers`, `math`, `cmath`, `decimal`, `fractions`, `random`, `statistics`
+  ```python
+  numbers, math, cmath, decimal, fractions, random, statistics
+  ```
 * Functional Programming Modules
 * [File and Directory Access](file_directory_access.md)
-  > `pathlib`, `os.path`, `fileinput`, `stat`, `filecmp`, `tempfile`, `glob`, `fnmatch`, `linecache`, `shutil`
+  ```python
+  pathlib, os.path, fileinput, stat, filecmp, tempfile, glob, fnmatch, linecache, shutil
+  ```
 * [Data Persistence](data_persistence.md)
 * [Data Compression and Archiving](data_compression_archiving.md)
 * File Formats
