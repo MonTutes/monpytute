@@ -91,6 +91,8 @@ print(tuple(border_collie)) # -> ('Border Collie', ['playful', 'energetic', 'int
 print(border_collie._asdict()) # -> OrderedDict([('name', 'Border Collie'), ('temperament', ['playful', 'energetic', 'intelligent'])])
 ```
 
+I increasingly prefer to create custom classes with `__slots__`, as using classes allows for extensibility while adding slots decreases memory usage and increases performance substantially. See also [this Stack Overflow post](https://stackoverflow.com/questions/472000/usage-of-slots) for more info.
+
 ### deque
 
 Like a list which you can append/remove efficiently from either the left or right-hand side.
