@@ -36,7 +36,10 @@ A work-in-progress.
   ```
   zlib, gzip, bz2, lzma, zipfile, tarfile
   ```
-* File Formats
+* [File Formats](file_formats.md)
+  ```
+  csv, configparser, netrc, xdrlib, plistlib
+  ```
 * [Cryptographic Services](cryptographic_services.md)
   ```
   hashlib, hmac, secrets
