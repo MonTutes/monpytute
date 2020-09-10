@@ -33,6 +33,9 @@ A work-in-progress.
   copyreg, shelve, marshal, dbm, sqlite3
   ```
 * [Data Compression and Archiving](data_compression_archiving.md)
+  ```
+  zlib, gzip, bz2, lzma, zipfile, tarfile
+  ```
 * File Formats
 * [Cryptographic Services](cryptographic_services.md)
 * Generic Operating System Services
