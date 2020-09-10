@@ -11,7 +11,7 @@ A work-in-progress.
 * Built-in Exceptions
 * [Text Processing Services](text_processing_services.md)
   ```
-  
+  string, re, difflib, textwrap, unicodedata, stringprep, readline, rlcompleter
   ```
 * [Binary Data Services](binary_data_services.md)
   ```
