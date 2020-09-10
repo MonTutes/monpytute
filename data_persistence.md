@@ -56,42 +56,45 @@ import json
 import sqlite3
 from os.path import exists
 
+
 class ShelveReplacement:
     def __init__(self, path):
         # Note "path" can be ":memory" for a fast in-memory storage (which is lost on exit)
         already_exists = exists(path)
         self.con = sqlite3.connect(path)
-        
+
         # Enable write-ahead logging
         # Please see https://www.sqlite.org/wal.html for more info before using this!
         self.con.execute('PRAGMA journal_mode=WAL;')
-        
+
         if not already_exists:
             self.con.execute('CREATE TABLE my_data(key TEXT NOT NULL PRIMARY KEY, value TEXT NOT NULL);')
             self.con.commit()
-    
+
     def commit(self):
         # Make sure changes are written to disk
         self.con.commit()
-    
-    def close():
+
+    def close(self):
         self.commit()
         self.con.close()
-    
+
     def __iter__(self):
-        # Allow "for key in my_shelve_replacement: ..."
-        for key, in list(self.con.execute('SELECT key, value FROM my_data')):
-            yield key, value
-    
+        # Allow "for key in my_shelve_replacement: ..." syntax
+        # Note the coercion to list() to allow for __getitem__ 
+        # to be called while iterating through the keys 
+        for key, in list(self.con.execute('SELECT key FROM my_data')):
+            yield key
+
     def __setitem__(self, key, value):
         # Note the use of the "?" character to prevent SQL injection vulnerabilities!
         self.con.execute('REPLACE INTO my_data (key, value) VALUES (?, ?);', (key, json.dumps(value)))
-        
+
     def __getitem__(self, key):
-        for value, in self.con.execute('SELECT value FROM my_data WHERE key = ?;', (key,))
+        for value, in self.con.execute('SELECT value FROM my_data WHERE key = ?;', (key,)):
             return json.loads(value)
-        raise KeyError(key) # Not found!
-        
+        raise KeyError(key)  # Not found!
+
 
 if __name__ == '__main__':
     db = ShelveReplacement('demo_db.sqlite')
@@ -100,10 +103,10 @@ if __name__ == '__main__':
     for my_key in db:
         print(my_key, db['my_key'])
     db.close()
-    
+
     db = ShelveReplacement('demo_db.sqlite')
     print(db['my_key'])
     db['my_key'] = 'my_new_value'
     print(db['my_key'])
     db.close()
-    
+```
