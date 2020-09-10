@@ -43,3 +43,67 @@ print(loads(dumps({"my object": "out", (1, 2, 3): 4})))
 I never use this, for the reasons I detail under the `shelve` heading above.
 
 ## sqlite3 — DB-API 2.0 interface for SQLite databases
+
+Though small, the in-process sqlite database has a large number of the features you'd expect from a full-blown client/server such as MySQL.
+Note that the below code isn't threadsafe, and you must call "commit", otherwise changes won't be written to disk.
+
+Just like the `shelve` module, the below code only supports string keys. I've used the `json` module to serialize data, which is more secure than `pickle` although doesn't support doing things like encoding a `dict` with non-string keys.
+
+I'd often use something like the following:
+
+```python
+import json
+import sqlite3
+from os.path import exists
+
+class ShelveReplacement:
+    def __init__(self, path):
+        # Note "path" can be ":memory" for a fast in-memory storage (which is lost on exit)
+        already_exists = exists(path)
+        self.con = sqlite3.connect(path)
+        
+        # Enable write-ahead logging
+        # Please see https://www.sqlite.org/wal.html for more info before using this!
+        self.con.execute('PRAGMA journal_mode=WAL;')
+        
+        if not already_exists:
+            self.con.execute('CREATE TABLE my_data(key TEXT NOT NULL PRIMARY KEY, value TEXT NOT NULL);')
+            self.con.commit()
+    
+    def commit(self):
+        # Make sure changes are written to disk
+        self.con.commit()
+    
+    def close():
+        self.commit()
+        self.con.close()
+    
+    def __iter__(self):
+        # Allow "for key in my_shelve_replacement: ..."
+        for key, in list(self.con.execute('SELECT key, value FROM my_data')):
+            yield key, value
+    
+    def __setitem__(self, key, value):
+        # Note the use of the "?" character to prevent SQL injection vulnerabilities!
+        self.con.execute('REPLACE INTO my_data (key, value) VALUES (?, ?);', (key, json.dumps(value)))
+        
+    def __getitem__(self, key):
+        for value, in self.con.execute('SELECT value FROM my_data WHERE key = ?;', (key,))
+            return json.loads(value)
+        raise KeyError(key) # Not found!
+        
+
+if __name__ == '__main__':
+    db = ShelveReplacement('demo_db.sqlite')
+    db['my_key'] = 'my_value'
+    print(db['my_key'])
+    for my_key in db:
+        print(my_key, db['my_key'])
+    db.close()
+    
+    db = ShelveReplacement('demo_db.sqlite')
+    print(db['my_key'])
+    db['my_key'] = 'my_new_value'
+    print(db['my_key'])
+    db.close()
+    
