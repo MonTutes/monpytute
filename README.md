@@ -9,7 +9,10 @@ A work-in-progress.
   int, float, str, bytes, tuple, list, range(), dict, set
   ```
 * Built-in Exceptions
-* Text Processing Services
+* [Text Processing Services](text_processing_services.md)
+  ```
+  
+  ```
 * [Binary Data Services](binary_data_services.md)
   ```
   struct, codecs
