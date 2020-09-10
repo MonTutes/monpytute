@@ -38,6 +38,9 @@ A work-in-progress.
   ```
 * File Formats
 * [Cryptographic Services](cryptographic_services.md)
+  ```
+  hashlib, hmac, secrets
+  ```
 * Generic Operating System Services
 * [Concurrent Execution](concurrent_execution.md)
 * contextvars — Context Variables
