@@ -58,11 +58,14 @@ print(inst.isoformat()) # -> 14:25:30.999999
 
 ### timezone
 
+
 TODO!
 
 ### tzinfo
 
 TODO!
+
+See also the external [pytz](https://pypi.org/project/pytz/) module which does similar things with more functionality.
 
 ## calendar — General calendar-related functions
 
@@ -242,6 +245,8 @@ pprint(o)
 ```
 
 ## reprlib — Alternate repr() implementation
+
+Apparently this is used by the python debugger for limiting the string length when outputting a representation of an object, although I can't think of an immediate use for this module outside of this usage.
 
 ## enum — Support for enumerations
 
