@@ -47,7 +47,7 @@ I never use this, for the reasons I detail under the `shelve` heading above.
 Though small, the in-process sqlite database has a large number of the features you'd expect from a full-blown client/server such as MySQL.
 Note that the below code isn't threadsafe, and you must call "commit", otherwise changes won't be written to disk.
 
-Just like the `shelve` module, the below code only supports string keys. I've used the `json` module to serialize data, which is more secure than `pickle` although doesn't support doing things like encoding a `dict` with non-string keys.
+Just like the `shelve` module, the below code only supports string keys. I've used the `json` module to serialize data, which is more secure than `pickle` and supports many basic types like lists, dicts etc. Note however json doesn't support doing things like encoding a `dict` with non-string keys.
 
 I'd often use something like the following:
 
