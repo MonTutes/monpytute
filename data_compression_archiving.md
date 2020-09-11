@@ -2,8 +2,13 @@
 
 ## zlib — Compression compatible with gzip
 
+### Checksums
 
 adler32(data) & 0xffffffff
+crc32(data[, value])
+
+### Compress
+
 compress(data, level=-1) 0 to 9
 
 compressobj(level=-1, method=DEFLATED, wbits=MAX_WBITS, memLevel=DEF_MEM_LEVEL, strategy=Z_DEFAULT_STRATEGY[, zdict])
@@ -12,14 +17,14 @@ compress(data)
 flush([mode])
 copy()
 
-crc32(data[, value])
+### Decompress
+
 decompress(data, wbits=MAX_WBITS, bufsize=DEF_BUF_SIZE)
 
 decompressobj(wbits=MAX_WBITS[, zdict])
 decompress
 flush
 copy
-
 
 ## gzip — Support for gzip files
 ## bz2 — Support for bzip2 compression
