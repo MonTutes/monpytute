@@ -9,17 +9,27 @@ crc32(data[, value])
 
 ### Compress
 
-compress(data, level=-1) 0 to 9
+`zlib.compress(data[, level])` compresses and returns `bytes` data. The second parameter allows compression from level 0 (no compression) to 9 (maximum compression), trading CPU time for better compression.
 
-compressobj(level=-1, method=DEFLATED, wbits=MAX_WBITS, memLevel=DEF_MEM_LEVEL, strategy=Z_DEFAULT_STRATEGY[, zdict])
+`zlib.compressobj([level])` returns a streaming compress object which can allow compression of larger amounts which don't fit in memory. (Note there are more params but the defaults should be OK in most cases).
 
-compress(data)
-flush([mode])
-copy()
+For example:
+
+```python
+co = zlib.compressobj(level=9)
+
+with open('demo_out.zlib', 'wb') as f:
+    for x in range(1000000):
+        compressed_data = co.compress(b'lorem ipsum ')
+        f.write(compressed_data)
+    
+    # Make sure the last bit is written!
+    f.write(compressobj.flush())
+```
 
 ### Decompress
 
-decompress(data, wbits=MAX_WBITS, bufsize=DEF_BUF_SIZE)
+`zlib.decompress(data)`
 
 decompressobj(wbits=MAX_WBITS[, zdict])
 decompress
