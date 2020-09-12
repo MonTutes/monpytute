@@ -47,7 +47,11 @@ A work-in-progress.
   ```
   hashlib, hmac, secrets
   ```
-* Generic Operating System Services
+* [Generic Operating System Services](generic_os_services.md)
+  ```
+  os, io, time, argparse, getopt, logging, logging.config, logging.handlers, getpass, 
+  curses, curses.textpad, curses.ascii, curses.panel, platform, errno, ctypes
+  ```
 * [Concurrent Execution](concurrent_execution.md)
 * contextvars — Context Variables
 * [Networking and Interprocess Communication](networking_ipc.md)
