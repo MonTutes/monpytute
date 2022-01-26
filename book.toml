@@ -1,0 +1,10 @@
+[book]
+authors = ["Dave Morrissey"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Python Quick Flythru"
+
+[output.html]
+git-repository-url = "https://github.com/MonTutes/monpytute"
+git-repository-icon = "fa-github"
