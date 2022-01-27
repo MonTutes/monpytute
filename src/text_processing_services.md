@@ -24,6 +24,21 @@ There is also a string `Template` class, but personally I prefer the templating 
 
 ## unicodedata — Unicode Database
 
+* `unicodedata.lookup(name)`
+* `unicodedata.name(chr[, default])`
+* `unicodedata.decimal(chr[, default])`
+* `unicodedata.digit(chr[, default])`
+* `unicodedata.numeric(chr[, default])`
+* `unicodedata.category(chr)`
+* `unicodedata.bidirectional(chr)`
+* `unicodedata.combining(chr)`
+* `unicodedata.east_asian_width(chr)`
+* `unicodedata.mirrored(chr)`
+* `unicodedata.decomposition(chr)`
+* `unicodedata.normalize(form, unistr)`
+* `unicodedata.is_normalized(form, unistr)`
+* `unicodedata.unidata_version`
+
 ## stringprep — Internet String Preparation
 
 ## readline — GNU readline interface
