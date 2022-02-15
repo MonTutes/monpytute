@@ -9,7 +9,7 @@ A work-in-progress.
   int, float, str, bytes, tuple, list, range(), dict, set
   ```
 * Built-in Exceptions
-* Text Processing Services
+* [Text Processing Services](text_processing_services.md)
   ```
   string, re, difflib, textwrap, unicodedata, stringprep, readline, rlcompleter
   ```
