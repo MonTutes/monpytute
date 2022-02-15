@@ -10,7 +10,7 @@ This module used to be used for more string operations in early versions of pyth
 * `digits`: `'0123456789'`
 * `hexdigits`: `'0123456789abcdefABCDEF'`
 * `octdigits`: `'01234567'`
-* `punctuation`: `'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'`
+* `punctuation`: ``'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'``
 * `printable`: ``'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n\r\x0b\x0c'`` 
 * `whitespace`: `' \t\n\r\x0b\x0c'`
 
