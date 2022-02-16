@@ -1,0 +1,271 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Data Persistence - Python Quick Flythru</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="built_in_types.html"><strong aria-hidden="true">1.</strong> Built-in types</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Built-in Exceptions</div></li><li class="chapter-item expanded "><a href="text_processing_services.html"><strong aria-hidden="true">3.</strong> Text Processing Services</a></li><li class="chapter-item expanded "><a href="binary_data_services.html"><strong aria-hidden="true">4.</strong> Binary Data Services</a></li><li class="chapter-item expanded "><a href="data_types.html"><strong aria-hidden="true">5.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="numeric_mathematical.html"><strong aria-hidden="true">6.</strong> Numeric and Mathematical Modules</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> Functional Programming Modules</div></li><li class="chapter-item expanded "><a href="file_directory_access.html"><strong aria-hidden="true">8.</strong> File and Directory Access</a></li><li class="chapter-item expanded "><a href="data_persistence.html" class="active"><strong aria-hidden="true">9.</strong> Data Persistence</a></li><li class="chapter-item expanded "><a href="data_compression_archiving.html"><strong aria-hidden="true">10.</strong> Data Compression and Archiving</a></li><li class="chapter-item expanded "><a href="file_formats.html"><strong aria-hidden="true">11.</strong> File Formats</a></li><li class="chapter-item expanded "><a href="cryptographic_services.html"><strong aria-hidden="true">12.</strong> Cryptographic Services</a></li><li class="chapter-item expanded "><a href="generic_os_services.html"><strong aria-hidden="true">13.</strong> Generic Operating System Services</a></li><li class="chapter-item expanded "><a href="concurrent_execution.html"><strong aria-hidden="true">14.</strong> Concurrent Execution</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> contextvars — Context Variables</div></li><li class="chapter-item expanded "><a href="networking_ipc.html"><strong aria-hidden="true">16.</strong> Networking and Interprocess Communication</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">17.</strong> Internet Data Handling</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">18.</strong> Structured Markup Processing Tools</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">19.</strong> Internet Protocols and Support</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">20.</strong> Multimedia Services</div></li><li class="chapter-item expanded "><a href="i18n.html"><strong aria-hidden="true">21.</strong> Internationalization</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">22.</strong> Program Frameworks</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">23.</strong> Graphical User Interfaces with Tk</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">24.</strong> Development Tools</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">25.</strong> Debugging and Profiling</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">26.</strong> Software Packaging and Distribution</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">27.</strong> Python Runtime Services</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">28.</strong> Custom Python Interpreters</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">29.</strong> Importing Modules</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">30.</strong> Python Language Services</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">31.</strong> Miscellaneous Services</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">32.</strong> MS Windows Specific Services</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">33.</strong> Unix Specific Services</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">34.</strong> Superseded Modules</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">35.</strong> Undocumented Modules</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Python Quick Flythru</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/MonTutes/monpytute" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/MonTutes/monpytute/edit/master/src/data_persistence.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="data-persistence"><a class="header" href="#data-persistence">Data Persistence</a></h1>
+<h2 id="copyreg--register-pickle-support-functions"><a class="header" href="#copyreg--register-pickle-support-functions">copyreg — Register pickle support functions</a></h2>
+<h2 id="shelve--python-object-persistence"><a class="header" href="#shelve--python-object-persistence">shelve — Python object persistence</a></h2>
+<p>Some python tutorials use this module. I don't ever use it myself, as it uses the <code>dbm</code> module for storage. The <code>dbm</code> module used to use the Berkeley DB as its backend, however due to licensing changes it was removed from python 3, and which backend you get depends on what your system provides. </p>
+<p>I recommend using something like <a href="https://plyvel.readthedocs.io/en/latest/">plyvel</a> for Google's LevelDB or <a href="https://python-rocksdb.readthedocs.io/en/latest/">python-rocksdb</a> for Facebook's RocksDB for fast, space-efficient key/value storage. Simply using <code>sqlite3</code> below is also a good choice, as it is small, fast (even if not as fast as LevelDB/RocksDB) and comes default with most python installations.</p>
+<pre><code class="language-python">import shelve
+
+db = shelve.open(&quot;test.shelve&quot;)
+db[&quot;test key&quot;] = &quot;test data&quot;
+db.close()
+
+db = shelve.open(&quot;test.shelve&quot;)
+data = db[&quot;test key&quot;]
+print(data) # -&gt; &quot;test data&quot;
+db.close()
+</code></pre>
+<h2 id="marshal--internal-python-object-serialization"><a class="header" href="#marshal--internal-python-object-serialization">marshal — Internal Python object serialization</a></h2>
+<p>This module allows for very fast encoding/decoding of basic python types to binary data. It may be slightly faster than <code>pickle</code>, however the format isn't guaranteed to stay the same across python releases, and it doesn't support encoding some kinds of python objects. </p>
+<p>This module might be slightly less insecure than <code>pickle</code>, but <b>should still be considered insecure</b>, especially for untrusted input.</p>
+<p>I normally would prefer the <code>json</code> or similar modules unless I need something like <code>tuple</code>s as <code>dict</code> keys (as the <code>json</code> module only supports strings as keys in objects), as it's fast enough for a vast majority of uses (and much more secure).</p>
+<pre><code class="language-python">from marshal import loads, dumps
+
+print(loads(dumps({&quot;my object&quot;: &quot;out&quot;, (1, 2, 3): 4})))
+# -&gt; {'my object': 'out', (1, 2, 3): 4}
+</code></pre>
+<h2 id="dbm--interfaces-to-unix-databases"><a class="header" href="#dbm--interfaces-to-unix-databases">dbm — Interfaces to Unix “databases”</a></h2>
+<p>I never use this, for the reasons I detail under the <code>shelve</code> heading above.</p>
+<h2 id="sqlite3--db-api-20-interface-for-sqlite-databases"><a class="header" href="#sqlite3--db-api-20-interface-for-sqlite-databases">sqlite3 — DB-API 2.0 interface for SQLite databases</a></h2>
+<p>Though small, the in-process sqlite database has a large number of the features you'd expect from a full-blown client/server such as MySQL.</p>
+<p>I'd often use something like the following snippet. Just like the <code>shelve</code> module, the below code only supports string keys. I've used the <code>json</code> module to serialize data, which is more secure than <code>pickle</code> and supports many basic types like lists, dicts etc. Note however <code>json</code> doesn't support doing things like encoding a <code>dict</code> with non-string keys.</p>
+<p>Note that the below code isn't threadsafe, and you must call &quot;commit&quot;, otherwise changes won't be written to disk.</p>
+<pre><code class="language-python">import json
+import sqlite3
+from os.path import exists
+
+
+class ShelveReplacement:
+    def __init__(self, path):
+        # Note &quot;path&quot; can be &quot;:memory&quot; for a fast in-memory storage (which is lost on exit)
+        already_exists = exists(path)
+        self.con = sqlite3.connect(path)
+
+        # Enable write-ahead logging
+        # Please see https://www.sqlite.org/wal.html for more info before using this!
+        self.con.execute('PRAGMA journal_mode=WAL;')
+
+        if not already_exists:
+            self.con.execute('CREATE TABLE my_data(key TEXT NOT NULL PRIMARY KEY, value TEXT NOT NULL);')
+            self.con.commit()
+
+    def commit(self):
+        # Make sure changes are written to disk
+        self.con.commit()
+
+    def close(self):
+        self.commit()
+        self.con.close()
+
+    def __iter__(self):
+        # Allow &quot;for key in my_shelve_replacement: ...&quot; syntax
+        # Note the coercion to list() to allow for __getitem__ 
+        # to be called while iterating through the keys 
+        for key, in list(self.con.execute('SELECT key FROM my_data')):
+            yield key
+
+    def __setitem__(self, key, value):
+        # Note the use of the &quot;?&quot; character to prevent SQL injection vulnerabilities!
+        self.con.execute('REPLACE INTO my_data (key, value) VALUES (?, ?);', (key, json.dumps(value)))
+
+    def __getitem__(self, key):
+        for value, in self.con.execute('SELECT value FROM my_data WHERE key = ?;', (key,)):
+            return json.loads(value)
+        raise KeyError(key)  # Not found!
+
+
+if __name__ == '__main__':
+    db = ShelveReplacement('demo_db.sqlite')
+    db['my_key'] = 'my_value'
+    print(db['my_key'])
+    for my_key in db:
+        print(my_key, db['my_key'])
+    db.close()
+
+    db = ShelveReplacement('demo_db.sqlite')
+    print(db['my_key'])
+    db['my_key'] = 'my_new_value'
+    print(db['my_key'])
+    db.close()
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="file_directory_access.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="data_compression_archiving.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="file_directory_access.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="data_compression_archiving.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        <base href="/">
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="built_in_types.html"><strong aria-hidden="true">1.</strong> Built-in types</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Built-in Exceptions</div></li><li class="chapter-item expanded "><a href="text_processing_services.html"><strong aria-hidden="true">3.</strong> Text Processing Services</a></li><li class="chapter-item expanded "><a href="binary_data_services.html"><strong aria-hidden="true">4.</strong> Binary Data Services</a></li><li class="chapter-item expanded "><a href="data_types.html"><strong aria-hidden="true">5.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="numeric_mathematical.html"><strong aria-hidden="true">6.</strong> Numeric and Mathematical Modules</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> Functional Programming Modules</div></li><li class="chapter-item expanded "><a href="file_directory_access.html"><strong aria-hidden="true">8.</strong> File and Directory Access</a></li><li class="chapter-item expanded "><a href="data_persistence.html"><strong aria-hidden="true">9.</strong> Data Persistence</a></li><li class="chapter-item expanded "><a href="data_compression_archiving.html"><strong aria-hidden="true">10.</strong> Data Compression and Archiving</a></li><li class="chapter-item expanded "><a href="file_formats.html"><strong aria-hidden="true">11.</strong> File Formats</a></li><li class="chapter-item expanded "><a href="cryptographic_services.html"><strong aria-hidden="true">12.</strong> Cryptographic Services</a></li><li class="chapter-item expanded "><a href="generic_os_services.html"><strong aria-hidden="true">13.</strong> Generic Operating System Services</a></li><li class="chapter-item expanded "><a href="concurrent_execution.html"><strong aria-hidden="true">14.</strong> Concurrent Execution</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> contextvars — Context Variables</div></li><li class="chapter-item expanded "><a href="networking_ipc.html"><strong aria-hidden="true">16.</strong> Networking and Interprocess Communication</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">17.</strong> Internet Data Handling</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">18.</strong> Structured Markup Processing Tools</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">19.</strong> Internet Protocols and Support</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">20.</strong> Multimedia Services</div></li><li class="chapter-item expanded "><a href="i18n.html"><strong aria-hidden="true">21.</strong> Internationalization</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">22.</strong> Program Frameworks</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">23.</strong> Graphical User Interfaces with Tk</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">24.</strong> Development Tools</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">25.</strong> Debugging and Profiling</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">26.</strong> Software Packaging and Distribution</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">27.</strong> Python Runtime Services</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">28.</strong> Custom Python Interpreters</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">29.</strong> Importing Modules</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">30.</strong> Python Language Services</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">31.</strong> Miscellaneous Services</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">32.</strong> MS Windows Specific Services</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">33.</strong> Unix Specific Services</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">34.</strong> Superseded Modules</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">35.</strong> Undocumented Modules</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Python Quick Flythru</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/MonTutes/monpytute" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
+<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
