@@ -4,8 +4,8 @@
 
 ### Checksums
 
-adler32(data) & 0xffffffff
-crc32(data[, value])
+`adler32(data) & 0xffffffff`
+`crc32(data[, value])`
 
 ### Compress
 

@@ -8,3 +8,4 @@ title = "Python Quick Flythru"
 [output.html]
 git-repository-url = "https://github.com/MonTutes/monpytute"
 git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/MonTutes/monpytute/edit/master/{path}"

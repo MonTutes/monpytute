@@ -10,8 +10,8 @@ This module used to be used for more string operations in early versions of pyth
 * `digits`: `'0123456789'`
 * `hexdigits`: `'0123456789abcdefABCDEF'`
 * `octdigits`: `'01234567'`
-* `punctuation`: `'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'`
-* `printable`: `'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n\r\x0b\x0c'`
+* `punctuation`: ``'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'``
+* `printable`: ``'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n\r\x0b\x0c'`` 
 * `whitespace`: `' \t\n\r\x0b\x0c'`
 
 There is also a string `Template` class, but personally I prefer the templating functions inbuilt to the `str` type such as `'%s' % s` or `f'{s}'`.

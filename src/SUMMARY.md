@@ -3,7 +3,7 @@
 [Introduction](introduction.md)
 - [Built-in types](built_in_types.md)
 - [Built-in Exceptions]()
-- [Text Processing Services]()
+- [Text Processing Services](text_processing_services.md)
 - [Binary Data Services](binary_data_services.md)
 - [Data Types](data_types.md)
 - [Numeric and Mathematical Modules](numeric_mathematical.md)
